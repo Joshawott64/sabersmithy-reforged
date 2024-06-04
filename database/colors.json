@@ -1,0 +1,34 @@
+[
+    {
+        "colorCode": "Black",
+        "image": "../assets/Crystals/BlackCrystal.png"
+    },
+    {
+        "colorCode": "Blue",
+        "image": "../assets/Crystals/BlueCrystal.png"
+    },
+    {
+        "colorCode": "Green",
+        "image": "../assets/Crystals/GreenCrystal.png"
+    },
+    {
+        "colorCode": "Orange",
+        "image": "../assets/Crystals/OrangeCrystal.png"
+    },
+    {
+        "colorCode": "Purple",
+        "image": "../assets/Crystals/PurpleCrystal.png"
+    },
+    {
+        "colorCode": "Red",
+        "image": "../assets/Crystals/RedCrystal.png"
+    },
+    {
+        "colorCode": "Silver",
+        "image": "../assets/CrystalsSilverCrystal.png"
+    },
+    {
+        "colorCode": "Yellow",
+        "image": "../assets/Crystals/YellowCrystal.png"
+    }
+]

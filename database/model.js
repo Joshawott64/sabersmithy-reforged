@@ -4,9 +4,10 @@ import url from 'url'
 import connectToDB from './db.js'
 import { timeStamp } from 'console'
 
-export const db = await connectToDB('postgresql:///sabers')
+export const db = await connectToDB('postgresql:///sabersmithy_reforged')
 
 export class Saber extends Model {
+    // simplify console logs
     [util.inspect.custom]() {
         return this.toJSON()
     }
@@ -56,7 +57,7 @@ Saber.init(
             allowNull: true
         },
         isDoubleBladed: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
         },
         emitter2Id: {
@@ -79,8 +80,8 @@ Saber.init(
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        soundfontId: {
-            type: DataTypes.INTEGER,
+        soundfontCode: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         isPublic: {
@@ -107,7 +108,7 @@ Color.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        colorCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -115,6 +116,10 @@ Color.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'color',
+        sequelize: db
     }
 )
 
@@ -131,7 +136,7 @@ Emitter.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        emitterCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -139,6 +144,10 @@ Emitter.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'emitter',
+        sequelize: db
     }
 )
 
@@ -155,7 +164,7 @@ ColoredEmitter.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        coloredEmitterCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -163,6 +172,10 @@ ColoredEmitter.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'colored_emitter',
+        sequelize: db
     }
 )
 
@@ -179,7 +192,7 @@ Guard.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        guardCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -187,6 +200,10 @@ Guard.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'guard',
+        sequelize: db
     }
 )
 
@@ -203,7 +220,7 @@ Switch.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        switchCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -211,6 +228,10 @@ Switch.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'switch',
+        sequelize: db
     }
 )
 
@@ -227,7 +248,7 @@ Pommel.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        pommelCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -235,6 +256,10 @@ Pommel.init(
             type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'pommel',
+        sequelize: db
     }
 )
 
@@ -251,7 +276,7 @@ Soundfont.init(
             autoIncrement: true,
             primaryKey: true
         },
-        name: {
+        soundfontCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -295,6 +320,10 @@ Soundfont.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+    },
+    {
+        modelName: 'soundfont',
+        sequelize: db
     }
 )
 
@@ -316,9 +345,13 @@ User.init(
             allowNull: false
         },
         password: {
-            type: DataTyps.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         }
+    },
+    {
+        modelName: 'user',
+        sequelize: db
     }
 )
 
@@ -346,12 +379,89 @@ Post.init(
         body: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        timestamp: {
-            type: DataTypes.TIMESTAMP,
-            allowNull: false
         }
+    },
+    {
+        modelName: 'post',
+        sequelize: db,
+        timestamps: true,
+        updatedAt: false
     }
 )
 
-// !!!!! CREATE MIDDLE TABLE FOR LIKES !!!!!
+export class Like extends Model {
+    [util.inspect.custom]() {
+        this.toJSON()
+    }
+}
+
+Like.init(
+    {
+        likeId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        postId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
+    },
+    {
+        modelName: 'like',
+        sequelize: db
+    }
+)
+
+// table relationships
+Color.hasMany(Saber, { foreignKey: 'colorId' })
+Saber.belongsTo(Color, { foreignKey: 'colorId' })
+
+Emitter.hasMany(Saber, { foreignKey: 'emitterId' })
+Emitter.hasMany(Saber, { foreignKey: 'emitter2Id' })
+Saber.belongsTo(Emitter, { foreignKey: 'emitterId' })
+
+ColoredEmitter.hasMany(Saber, { foreignKey: 'coloredEmitterId' })
+ColoredEmitter.hasMany(Saber, { foreignKey: 'coloredEmitter2Id' })
+Saber.belongsTo(ColoredEmitter, { foreignKey: 'coloredEmitterId' })
+
+Guard.hasMany(Saber, { foreignKey: 'guardId' })
+Guard.hasMany(Saber, { foreignKey: 'guard2Id' })
+Saber.belongsTo(Guard, { foreignKey: 'guardId' })
+
+Switch.hasMany(Saber, { foreignKey: 'switchId' })
+Switch.hasMany(Saber, { foreignKey: 'switch2Id' })
+Saber.belongsTo(Switch, { foreignKey: 'switchId' })
+
+Pommel.hasMany(Saber, { foreignKey: 'pommelId' })
+Saber.belongsTo(Pommel, { foreignKey: 'pommelId' })
+
+Soundfont.hasMany(Saber, { foreignKey: 'soundfontId' })
+Saber.belongsTo(Soundfont, { foreignKey: 'soundfontId' })
+
+User.hasMany(Saber, { foreignKey: 'userId' })
+Saber.belongsTo(User, { foreignKey: 'userId' })
+
+User.hasMany(Post, { foreignKey: 'userId' })
+Post.belongsTo(User, { foreignKey: 'userId' })
+
+User.hasMany(Like, { foreignKey: 'userId' })
+Like.belongsTo(User, { foreignKey: 'userId' })
+
+Post.hasMany(Saber, { foreignKey: 'saberId' })
+Saber.belongsTo(Post, { foreignKey: 'saberId' })
+
+Post.hasMany(Like, { foreignKey: 'postId' })
+Like.belongsTo(Post, { foreignKey: 'postId' })
+
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+    console.log('Syncing database...')
+    await db.sync()
+    console.log('Finished syncing database!')
+}
+
+export default db

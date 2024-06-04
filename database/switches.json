@@ -1,0 +1,34 @@
+[
+    {
+        "switchcode": "AhsokaSwitch",
+        "image": "../assets/SaberParts/AhsokaSwitch.png"
+    },
+    {
+        "switchcode": "AnakinSwitch",
+        "image": "../assets/SaberParts/AnakinSwitch.png"
+    },
+    {
+        "switchcode": "CalSwitch",
+        "image": "../assets/SaberParts/CalSwitch.png"
+    },
+    {
+        "switchcode": "DarkSwitch",
+        "image": "../assets/SaberParts/DarkSwitch.png"
+    },
+    {
+        "switchcode": "LukeSwitch",
+        "image": "../assets/SaberParts/LukeSwitch.png"
+    },
+    {
+        "switchcode": "Orig1Switch",
+        "image": "../assets/SaberParts/Orig1Switch.png"
+    },
+    {
+        "switchcode": "Orig2Switch",
+        "image": "../assets/SaberParts/Orig2Switch.png"
+    },
+    {
+        "switchcode": "VaderSwitch",
+        "image": "../assets/SaberParts/VaderaSwitch.png"
+    }
+]

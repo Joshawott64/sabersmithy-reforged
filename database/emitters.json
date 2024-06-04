@@ -1,0 +1,34 @@
+[
+    {
+        "emitterCode": "AhsokaEmitter",
+        "image": "../assets/SaberParts/AhsokaEmitter.png"
+    },
+    {
+        "emitterCode": "AnakinEmitter",
+        "image": "../assets/SaberParts/AnakinEmitter.png"
+    },
+    {
+        "emitterCode": "CalEmitter",
+        "image": "../assets/SaberParts/CalEmitter.png"
+    },
+    {
+        "emitterCode": "DarkEmitter",
+        "image": "../assets/SaberParts/DarkEmitter.png"
+    },
+    {
+        "emitterCode": "LukeEmitter",
+        "image": "../assets/SaberParts/LukeEmitter.png"
+    },
+    {
+        "emitterCode": "Orig1Emitter",
+        "image": "../assets/SaberParts/Orig1Emitter.png"
+    },
+    {
+        "emitterCode": "Orig2Emitter",
+        "image": "../assets/SaberParts/Orig2Emitter.png"
+    },
+    {
+        "emitterCode": "VaderEmitter",
+        "image": "../assets/SaberParts/VaderaEmitter.png"
+    }
+]
