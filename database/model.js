@@ -2,7 +2,6 @@ import { Model, DataTypes } from 'sequelize'
 import util from 'util'
 import url from 'url'
 import connectToDB from './db.js'
-import { timeStamp } from 'console'
 
 export const db = await connectToDB('postgresql:///sabersmithy_reforged')
 
@@ -28,59 +27,11 @@ Saber.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        colorId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
         bladeStyle: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        emitterId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        coloredEmitterId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        guardId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        switchId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        pommelId: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
         isDoubleBladed: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        emitter2Id: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        coloredEmitter2Id: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        guard2Id: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        switch2Id: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        soundfontCode: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -368,14 +319,6 @@ Post.init(
             autoIncrement: true,
             primaryKey: true
         },
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
-        saberId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        },
         body: {
             type: DataTypes.STRING,
             allowNull: false
@@ -401,14 +344,6 @@ Like.init(
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
-        },
-        userId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        postId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
         }
     },
     {
@@ -452,8 +387,8 @@ Post.belongsTo(User, { foreignKey: 'userId' })
 User.hasMany(Like, { foreignKey: 'userId' })
 Like.belongsTo(User, { foreignKey: 'userId' })
 
-Post.hasMany(Saber, { foreignKey: 'saberId' })
-Saber.belongsTo(Post, { foreignKey: 'saberId' })
+Saber.hasMany(Post, { foreignKey: 'saberId' })
+Post.belongsTo(Saber, { foreignKey: 'saberId' })
 
 Post.hasMany(Like, { foreignKey: 'postId' })
 Like.belongsTo(Post, { foreignKey: 'postId' })

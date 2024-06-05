@@ -16,44 +16,12 @@ console.log('Syncing database...')
 await db.sync({force: true})
 console.log('Seeding database...')
 
-// add saberData to database
-const sabersInDB = await Promise.all(saberData.map((saber) => {
-    const { isDefault, name, colorId, bladeStyle, emitterId, coloredEmitterId,
-         guardId, switchId, pommelId, isDoubleBladed, emitter2Id, 
-         coloredEmitter2Id, guard2Id, switch2Id, userId, soundfontId, 
-         isPublic } = saber
-
-         const newSaber = Saber.create({
-            isDefault,
-            name,
-            colorId,
-            bladeStyle,
-            emitterId,
-            coloredEmitterId,
-            guardId, 
-            switchId, 
-            pommelId,
-            isDoubleBladed,
-            emitter2Id,
-            coloredEmitter2Id,
-            guard2Id,
-            switch2Id,
-            userId,
-            soundfontId,
-            isPublic
-         })
-
-         return newSaber
-}))
-
-console.log(sabersInDB)
-
 // add colorData to database
 const colorsInDB = await Promise.all(colorData.map((color) => {
-    const { colorId, image } = color
+    const { colorCode, image } = color
     
     const newColor = Color.create({
-        colorId,
+        colorCode,
         image
     })
 
@@ -62,46 +30,58 @@ const colorsInDB = await Promise.all(colorData.map((color) => {
 
 // add emitterData to database
 const emittersInDB = await Promise.all(emitterData.map((emitter) => {
-    const { emitterId, image } = emitter
-
+    const { emitterCode, image } = emitter
+    
     const newEmitter = Emitter.create({
-        emitterId,
+        emitterCode,
         image
     })
-
+    
     return newEmitter
 }))
 
 // add coloredEmitterData to database
 const coloredEmittersInDB = await Promise.all(coloredEmitterData.map((coloredEmitter) => {
-    const { coloredEmitterId, image } = coloredEmitter
-
+    const { coloredEmitterCode, image } = coloredEmitter
+    
     const newColoredEmitter = ColoredEmitter.create({
-        coloredEmitterId,
+        coloredEmitterCode,
         image
     })
-
+    
     return newColoredEmitter
 }))
 
 // add guardData to database
 const guardsInDB = await Promise.all(guardData.map((guard) => {
-    const { guardId, image } = guard
-
+    const { guardCode, image } = guard
+    
     const newGuard = Guard.create({
-        guardId,
+        guardCode,
+        image
+    })
+    
+    return newGuard
+}))
+
+// add switchData to database
+const switchesInDB = await Promise.all(switchData.map((bladeSwitch) => {
+    const { switchCode, image } = bladeSwitch
+    
+    const newSwitch = Switch.create({
+        switchCode,
         image
     })
 
-    return newGuard
+    return newSwitch
 }))
 
 // add pommelData to database
 const pommelsInDB = await Promise.all(pommelData.map((pommel) => {
-    const { pommelId, image } = pommel
-
+    const { pommelCode, image } = pommel
+    
     const newPommel = Pommel.create({
-        pommelId,
+        pommelCode,
         image
     })
 
@@ -110,11 +90,11 @@ const pommelsInDB = await Promise.all(pommelData.map((pommel) => {
 
 // add soundfontData to database
 const soundfontsInDB = await Promise.all(soundfontData.map((soundfont) => {
-    const { soundfontId, clash1, clash2, clash3, deactivate, deflect, hum, 
+    const { soundfontCode, clash1, clash2, clash3, deactivate, deflect, hum, 
         ignite, swoosh1, swoosh2, swoosh3 } = soundfont
-
+        
     const newSoundfont = Soundfont.create({
-        soundfontId,
+        soundfontCode,
         clash1,
         clash2,
         clash3,
@@ -133,24 +113,60 @@ const soundfontsInDB = await Promise.all(soundfontData.map((soundfont) => {
 // add userData to database
 const usersInDB = await Promise.all(userData.map((user) => {
     const { username, password } = user
-
+    
     const newUser = User.create({
         username,
-        password
+        password,
     })
-
+    
     return newUser
 }))
 
+// add saberData to database
+const sabersInDB = await Promise.all(saberData.map((saber) => {
+    const { isDefault, name, colorId, bladeStyle, emitterId, coloredEmitterId,
+         guardId, switchId, pommelId, isDoubleBladed, emitter2Id, 
+         coloredEmitter2Id, guard2Id, switch2Id, userId, soundfontId, 
+         isPublic } = saber
+
+         console.log('saber:', saber)
+
+         const newSaber = Saber.create({
+            isDefault: isDefault,
+            name: name,
+            colorId: colorId,
+            bladeStyle: bladeStyle,
+            emitterId: emitterId,
+            coloredEmitterId: coloredEmitterId,
+            guardId: guardId, 
+            switchId: switchId, 
+            pommelId: pommelId,
+            isDoubleBladed: isDoubleBladed,
+            emitter2Id: emitter2Id,
+            coloredEmitter2Id: coloredEmitter2Id,
+            guard2Id: guard2Id,
+            switch2Id: switch2Id,
+            userId: userId,
+            soundfontId: soundfontId,
+            isPublic: isPublic
+         })
+
+         console.log('newSaber:', newSaber)
+
+         return newSaber
+}))
+
+console.log('sabersInDB:', sabersInDB)
+
 // add postData to database
 const postsInDB = await Promise.all(postData.map((post) => {
-    const { userId, saberId, body, timestamp } = post
+    console.log("HELLO THERE")
+    const { userId, saberId, body } = post
 
     const newPost = Post.create({
         userId,
         saberId,
-        body,
-        timestamp
+        body
     })
 
     return newPost
