@@ -14,6 +14,12 @@ app.use(express.json())
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 // endpoints
+const { getSabers, addSaber, editSaber, deleteSaber } = handlerFunctions
 
+app.get('/api/gallery', getSabers)
+app.post('/api/forge', addSaber)
+app.delete('/api/delete/:id', deleteSaber)
+app.put('/api/edit/:id', editSaber)
+app.get('/api/select:id')
 
 ViteExpress.listen(app, port, () => console.log(`Execute port 66! http://localhost:${port}`))
