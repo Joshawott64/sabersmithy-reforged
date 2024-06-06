@@ -1,29 +1,36 @@
-import { useState } from 'react'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './App.css'
+import sabersmithyTitle from './assets/GUIComponents/Sabersmithy.png'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const navigate = useNavigate()
+
+  // maybe have a conditional that catches whether or not the user 
+  // is logged in and navigates them to an appropriate page?
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-        </a>
-        <a href="https://react.dev" target="_blank">
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <nav>
+        <div>
+          <p>Navebar goes here</p>
+          <img src={sabersmithyTitle} alt="Sabersmithy" />
+        </div>
+        <ul>
+          <li>Username Form goes here</li>
+          <li>Password Form goes here</li>
+        </ul>
+        <div>
+          <button onClick={() => navigate('/home')}>Login</button>
+          <button onClick={() => navigate('/new')}>New User</button>
+        </div>
+      </nav>
+
+      <hr />
+
+      <main>
+        <Outlet />
+      </main>
     </>
   )
 }

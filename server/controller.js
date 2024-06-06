@@ -1,5 +1,15 @@
-import { Saber, Color, Emitter, ColoredEmitter, Guard, Switch, 
-    Pommel, Soundfont, User, Post, Like } from '../database/model.js'
+import { Saber, 
+    Color, 
+    Emitter, 
+    ColoredEmitter, 
+    Guard, 
+    Switch, 
+    Pommel, 
+    Soundfont, 
+    User, 
+    Post, 
+    Like 
+} from '../database/model.js'
 
 // select every saber in the saber table
 const saberData = await Saber.findAll()
