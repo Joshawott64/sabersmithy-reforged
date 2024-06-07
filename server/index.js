@@ -14,9 +14,10 @@ app.use(express.json())
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 // endpoints
-const { getSabers, addSaber, editSaber, deleteSaber } = handlerFunctions
+const { getSabers, getSaberUrls, addSaber, editSaber, deleteSaber } = handlerFunctions
 
 app.get('/api/gallery', getSabers)
+app.post('/api/gallery/urls', getSaberUrls)
 app.post('/api/forge', addSaber)
 app.delete('/api/delete/:id', deleteSaber)
 app.put('/api/edit/:id', editSaber)

@@ -13,16 +13,19 @@ function App() {
     <>
       <nav>
         <div>
-          <p>Navebar goes here</p>
+          <p>Navbar goes here</p>
           <img src={sabersmithyTitle} alt="Sabersmithy" />
         </div>
-        <ul>
-          <li>Username Form goes here</li>
-          <li>Password Form goes here</li>
-        </ul>
         <div>
-          <button onClick={() => navigate('/home')}>Login</button>
-          <button onClick={() => navigate('/new')}>New User</button>
+          <button onClick={() => navigate('/login')}>/login</button>
+          <button onClick={() => navigate('/new')}>/new</button>
+          <button onClick={() => navigate('/home')}>/home</button>
+          <button onClick={() => navigate('/forge')}>/forge</button>
+          <button onClick={() => navigate('/gallery')}>/gallery</button>
+          <button onClick={() => navigate('/edit')}>/edit</button>
+          <button onClick={() => navigate('/forum')}>/forum</button>
+          <button onClick={() => navigate('/minigames')}>/minigames</button>
+          <button onClick={() => navigate('/select')}>/select</button>
         </div>
       </nav>
 
