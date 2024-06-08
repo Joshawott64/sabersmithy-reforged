@@ -1,34 +1,34 @@
 [
     {
         "colorCode": "Black",
-        "image": "../assets/Crystals/BlackCrystal.png"
+        "image": "../src/assets/Crystals/BlackCrystal.png"
     },
     {
         "colorCode": "Blue",
-        "image": "../assets/Crystals/BlueCrystal.png"
+        "image": "../src/assets/Crystals/BlueCrystal.png"
     },
     {
         "colorCode": "Green",
-        "image": "../assets/Crystals/GreenCrystal.png"
+        "image": "../src/assets/Crystals/GreenCrystal.png"
     },
     {
         "colorCode": "Orange",
-        "image": "../assets/Crystals/OrangeCrystal.png"
+        "image": "../src/assets/Crystals/OrangeCrystal.png"
     },
     {
         "colorCode": "Purple",
-        "image": "../assets/Crystals/PurpleCrystal.png"
+        "image": "../src/assets/Crystals/PurpleCrystal.png"
     },
     {
         "colorCode": "Red",
-        "image": "../assets/Crystals/RedCrystal.png"
+        "image": "../src/assets/Crystals/RedCrystal.png"
     },
     {
         "colorCode": "Silver",
-        "image": "../assets/CrystalsSilverCrystal.png"
+        "image": "../src/assets/CrystalsSilverCrystal.png"
     },
     {
         "colorCode": "Yellow",
-        "image": "../assets/Crystals/YellowCrystal.png"
+        "image": "../src/assets/Crystals/YellowCrystal.png"
     }
 ]

@@ -78,7 +78,7 @@
     {
         "isDefault": true,
         "name": "The Survivor",
-        "colorId": 1,
+        "colorId": 2,
         "bladeStyle": "Stable",
         "emitterId": 3,
         "coloredEmitterId": 35,

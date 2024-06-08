@@ -1,34 +1,34 @@
 [
     {
         "pommelCode": "AhsokaPommel",
-        "image": "../assets/SaberParts/AhsokaPommel.png"
+        "image": "../src/assets/SaberParts/AhsokaPommel.png"
     },
     {
         "pommelCode": "AnakinPommel",
-        "image": "../assets/SaberParts/AnakinPommel.png"
+        "image": "../src/assets/SaberParts/AnakinPommel.png"
     },
     {
         "pommelCode": "CalPommel",
-        "image": "../assets/SaberParts/CalPommel.png"
+        "image": "../src/assets/SaberParts/CalPommel.png"
     },
     {
         "pommelCode": "DarkPommel",
-        "image": "../assets/SaberParts/DarkPommel.png"
+        "image": "../src/assets/SaberParts/DarkPommel.png"
     },
     {
         "pommelCode": "LukePommel",
-        "image": "../assets/SaberParts/LukePommel.png"
+        "image": "../src/assets/SaberParts/LukePommel.png"
     },
     {
         "pommelCode": "Orig1Pommel",
-        "image": "../assets/SaberParts/Orig1Pommel.png"
+        "image": "../src/assets/SaberParts/Orig1Pommel.png"
     },
     {
         "pommelCode": "Orig2Pommel",
-        "image": "../assets/SaberParts/Orig2Pommel.png"
+        "image": "../src/assets/SaberParts/Orig2Pommel.png"
     },
     {
         "pommelCode": "VaderPommel",
-        "image": "../assets/SaberParts/VaderPommel.png"
+        "image": "../src/assets/SaberParts/VaderPommel.png"
     }
 ]

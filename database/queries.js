@@ -13,7 +13,9 @@ const { Saber,
 
 const queryFunctions = {
     getAllSabers: async () => {
-        const saberData = await Saber.findAll()
+        const saberData = await Saber.findAll({
+            order: ['saberId']
+        })
 
         return saberData
     },
@@ -58,6 +60,10 @@ const queryFunctions = {
         return switchImage.image
     },
     getPommelImage: async (saber) => {
+        if (saber.pommelId === null) {
+            return ''
+        }
+
         const pommelImage = await Pommel.findOne({
             attributes: [ 'image' ],
             where: { pommelId: saber.pommelId }
@@ -66,16 +72,22 @@ const queryFunctions = {
         return pommelImage.image
     },
     getEmitter2Image: async (saber) => {
+        if (saber.emitter2Id === null) {
+            return ''
+        }
+
         const emitter2Image = await Emitter.findOne({
             attributes: [ 'image' ],
             where: { emitterId: saber.emitter2Id }
         })
 
-        console.log('emitter2Image:', emitter2Image) // start here
-
         return emitter2Image.image
     },
     getColoredEmitter2Image: async (saber) => {
+        if (saber.coloredEmitter2Id === null) {
+            return ''
+        }
+
         const coloredEmitter2Image = await ColoredEmitter.findOne({
             attributes: [ 'image' ],
             where: { coloredEmitterId: saber.coloredEmitter2Id }
@@ -84,6 +96,10 @@ const queryFunctions = {
         return coloredEmitter2Image.image
     },
     getGuard2Image: async (saber) => {
+        if (saber.guard2Id === null) {
+            return ''
+        }
+
         const guard2Image = await Guard.findOne({
             attributes: [ 'image' ],
             where: { guardId: saber.guard2Id }
@@ -92,6 +108,10 @@ const queryFunctions = {
         return guard2Image.image
     },
     getSwitch2Image: async (saber) => {
+        if (saber.emitter2Id === null) {
+            return ''
+        }
+
         const switch2Image = await Switch.findOne({
             attributes: [ 'image' ],
             where: { switchId: saber.switch2Id }
