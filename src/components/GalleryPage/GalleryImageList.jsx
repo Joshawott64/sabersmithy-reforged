@@ -3,12 +3,9 @@ import axios from 'axios'
 
 const GalleryImageList = ({saber, urls}) => {
 
-    // console.log('urls:', urls)
+    console.log('urls:', urls)
 
-    // console.log('saber.isDoubleBladed:', saber.isDoubleBladed)
-
-    if (urls.pommel !== '') { // for whatever reason (!saber.isDoubleBladed) doesn't work
-        // console.log('This saber is single bladed')
+    if (!saber.isDoubleBladed) {
         return (
             <>
                 <div id="saber-preview">
@@ -30,7 +27,6 @@ const GalleryImageList = ({saber, urls}) => {
             </>
         )
     } else {
-        // console.log('This saber is double bladed')
         return (
             <>
                 <div id="saber-preview">

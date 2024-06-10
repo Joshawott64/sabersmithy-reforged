@@ -32,7 +32,7 @@ Saber.init(
             allowNull: false
         },
         isDoubleBladed: {
-            type: DataTypes.STRING,
+            type: DataTypes.BOOLEAN,
             allowNull: false
         },
         isPublic: {

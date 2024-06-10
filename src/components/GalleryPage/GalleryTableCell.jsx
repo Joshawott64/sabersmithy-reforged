@@ -1,4 +1,6 @@
 import GalleryImageList from './GalleryImageList.jsx'
+import GalleryEditButton from './GalleryEditButton.jsx'
+import GalleryDeleteButton from './GalleryDeleteButton.jsx'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -25,8 +27,16 @@ const GalleryTableCell = ({saber, saberId}) => {
                     urls={urls}
                 />
             </td>
-            <td>edit</td>
-            <td>delete</td>
+            <td>
+                <GalleryEditButton 
+                    saber={saber}
+                />
+            </td>
+            <td>
+                <GalleryDeleteButton 
+                    saber={saber}
+                />
+            </td>
         </tr>
     )
 }

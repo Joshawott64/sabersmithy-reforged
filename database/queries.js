@@ -19,7 +19,49 @@ const queryFunctions = {
 
         return saberData
     },
-    getColorImage: async (saber) => {
+    getAllColors: async () => {
+        const colorData = await Color.findAll({
+            order: ['colorId']
+        })
+
+        return colorData
+    },
+    getAllEmitters: async () => {
+        const emitterData = await Emitter.findAll({
+            order: ['emitterId']
+        })
+
+        return emitterData
+    },
+    getAllColoredEmitters: async () => {
+        const coloredEmitterData = await ColoredEmitter.findAll({
+            order: ['coloredEmitterId']
+        })
+
+        return coloredEmitterData
+    },
+    getAllGuards: async () => {
+        const guardData = await Guard.findAll({
+            order: ['guardId']
+        })
+
+        return guardData
+    },
+    getAllSwitches: async () => {
+        const switchData = await Switch.findAll({
+            order: ['switchId']
+        })
+
+        return switchData
+    },
+    getAllPommels: async () => {
+        const pommelData = await Pommel.findAll({
+            order: ['pommelId']
+        })
+
+        return pommelData
+    },
+    getSaberColorImage: async (saber) => {
         const colorImage = await Color.findOne({
             attributes: [ 'image' ],
             where: { colorId: saber.colorId }
@@ -27,7 +69,7 @@ const queryFunctions = {
 
         return colorImage.image
     },
-    getEmitterImage: async (saber) => {
+    getSaberEmitterImage: async (saber) => {
         const emitterImage = await Emitter.findOne({
             attributes: [ 'image' ],
             where: { emitterId: saber.emitterId }
@@ -35,7 +77,7 @@ const queryFunctions = {
 
         return emitterImage.image
     },
-    getColoredEmitterImage: async (saber) => {
+    getSaberColoredEmitterImage: async (saber) => {
         const coloredEmitterImage = await ColoredEmitter.findOne({
             attributes: [ 'image' ],
             where: { coloredEmitterId: saber.coloredEmitterId }
@@ -43,7 +85,7 @@ const queryFunctions = {
 
         return coloredEmitterImage.image
     },
-    getGuardImage: async (saber) => {
+    getSaberGuardImage: async (saber) => {
         const guardImage = await Guard.findOne({
             attributes: [ 'image' ],
             where: { guardId: saber.guardId }
@@ -51,7 +93,7 @@ const queryFunctions = {
 
         return guardImage.image
     },
-    getSwitchImage: async (saber) => {
+    getSaberSwitchImage: async (saber) => {
         const switchImage = await Switch.findOne({
             attributes: [ 'image' ],
             where: { switchId: saber.switchId }
@@ -59,7 +101,7 @@ const queryFunctions = {
 
         return switchImage.image
     },
-    getPommelImage: async (saber) => {
+    getSaberPommelImage: async (saber) => {
         if (saber.pommelId === null) {
             return ''
         }
@@ -71,7 +113,7 @@ const queryFunctions = {
 
         return pommelImage.image
     },
-    getEmitter2Image: async (saber) => {
+    getSaberEmitter2Image: async (saber) => {
         if (saber.emitter2Id === null) {
             return ''
         }
@@ -83,7 +125,7 @@ const queryFunctions = {
 
         return emitter2Image.image
     },
-    getColoredEmitter2Image: async (saber) => {
+    getSaberColoredEmitter2Image: async (saber) => {
         if (saber.coloredEmitter2Id === null) {
             return ''
         }
@@ -95,7 +137,7 @@ const queryFunctions = {
 
         return coloredEmitter2Image.image
     },
-    getGuard2Image: async (saber) => {
+    getSaberGuard2Image: async (saber) => {
         if (saber.guard2Id === null) {
             return ''
         }
@@ -107,7 +149,7 @@ const queryFunctions = {
 
         return guard2Image.image
     },
-    getSwitch2Image: async (saber) => {
+    getSaberSwitch2Image: async (saber) => {
         if (saber.emitter2Id === null) {
             return ''
         }

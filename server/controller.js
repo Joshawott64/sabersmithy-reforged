@@ -14,17 +14,23 @@ import queryFunctions from '../database/queries.js'
 
 // destructure query functions
 const { 
-    getAllSabers, 
-    getColorImage, 
-    getEmitterImage, 
-    getColoredEmitterImage, 
-    getGuardImage, 
-    getSwitchImage, 
-    getPommelImage,
-    getEmitter2Image, 
-    getColoredEmitter2Image, 
-    getGuard2Image, 
-    getSwitch2Image
+    getAllSabers,
+    getAllColors,
+    getAllEmitters,
+    getAllColoredEmitters,
+    getAllGuards,
+    getAllSwitches,
+    getAllPommels, 
+    getSaberColorImage, 
+    getSaberEmitterImage, 
+    getSaberColoredEmitterImage, 
+    getSaberGuardImage, 
+    getSaberSwitchImage, 
+    getSaberPommelImage,
+    getSaberEmitter2Image, 
+    getSaberColoredEmitter2Image, 
+    getSaberGuard2Image, 
+    getSaberSwitch2Image
 } = queryFunctions
 
 const saberData = await getAllSabers()
@@ -33,21 +39,34 @@ const handlerFunctions = {
     getSabers: (req, res) => {
         res.status(200).send(saberData)
     },
-    getSaberUrls: async (req, res) =>{
+    getSaberUrls: async (req, res) => {
         const saber = req.body
         const urls = {
-            color: await getColorImage(saber),
-            emitter: await getEmitterImage(saber),
-            guard: await getGuardImage(saber),
-            switch: await getSwitchImage(saber),
-            pommel: await getPommelImage(saber),
-            emitter2: await getEmitter2Image(saber),
-            coloredEmitter2: await getColoredEmitter2Image(saber),
-            guard2: await getGuard2Image(saber),
-            switch2: await getSwitch2Image(saber)
+            color: await getSaberColorImage(saber),
+            emitter: await getSaberEmitterImage(saber),
+            coloredEmitter: await getSaberColoredEmitterImage(saber),
+            guard: await getSaberGuardImage(saber),
+            switch: await getSaberSwitchImage(saber),
+            pommel: await getSaberPommelImage(saber),
+            emitter2: await getSaberEmitter2Image(saber),
+            coloredEmitter2: await getSaberColoredEmitter2Image(saber),
+            guard2: await getSaberGuard2Image(saber),
+            switch2: await getSaberSwitch2Image(saber)
         }
 
         res.status(200).send(urls)
+    },
+    getComponents: async (req, res) => {
+        const componentData = {
+            colors: await getAllColors(),
+            emitters: await getAllEmitters(),
+            coloredEmitters: await getAllColoredEmitters(),
+            guards: await getAllGuards(),
+            switches: await getAllSwitches(),
+            pommels: await getAllPommels(),
+        }
+
+        res.status(200).send(componentData)
     },
     addSaber: async (req, res) => {
         const newSaber = await Saber.create(req.body)

@@ -17,22 +17,42 @@ await db.sync({force: true})
 console.log('Seeding database...')
 
 // add colorData to database
-const colorsInDB = await Promise.all(colorData.map((color) => {
+// const colorsInDB = await Promise.all(colorData.map((color) => {
+//     const { colorCode, image } = color
+    
+//     const newColor = Color.create({
+//         colorCode,
+//         image
+//     })
+
+//     return newColor
+// }))
+const colorsInDB = colorData.map(async (color) => {
     const { colorCode, image } = color
     
-    const newColor = Color.create({
+    const newColor = await Color.create({
         colorCode,
         image
     })
 
     return newColor
-}))
+})
+
+// let colorsToCreate = []
+// for (const color of colorData) {
+//     colorsToCreate({ 
+//         colorCode: color.colorCode,
+//         image: color.image
+//     })
+// }
+
+// await Color.bulkCreate(colorsToCreate)
 
 // add emitterData to database
-const emittersInDB = await Promise.all(emitterData.map((emitter) => {
+const emittersInDB = (emitterData.map(async (emitter) => {
     const { emitterCode, image } = emitter
     
-    const newEmitter = Emitter.create({
+    const newEmitter = await Emitter.create({
         emitterCode,
         image
     })
@@ -41,10 +61,10 @@ const emittersInDB = await Promise.all(emitterData.map((emitter) => {
 }))
 
 // add coloredEmitterData to database
-const coloredEmittersInDB = await Promise.all(coloredEmitterData.map((coloredEmitter) => {
+const coloredEmittersInDB = (coloredEmitterData.map(async (coloredEmitter) => {
     const { coloredEmitterCode, image } = coloredEmitter
     
-    const newColoredEmitter = ColoredEmitter.create({
+    const newColoredEmitter = await ColoredEmitter.create({
         coloredEmitterCode,
         image
     })
@@ -53,10 +73,10 @@ const coloredEmittersInDB = await Promise.all(coloredEmitterData.map((coloredEmi
 }))
 
 // add guardData to database
-const guardsInDB = await Promise.all(guardData.map((guard) => {
+const guardsInDB = (guardData.map(async (guard) => {
     const { guardCode, image } = guard
     
-    const newGuard = Guard.create({
+    const newGuard = await Guard.create({
         guardCode,
         image
     })
@@ -65,10 +85,10 @@ const guardsInDB = await Promise.all(guardData.map((guard) => {
 }))
 
 // add switchData to database
-const switchesInDB = await Promise.all(switchData.map((bladeSwitch) => {
+const switchesInDB = (switchData.map(async (bladeSwitch) => {
     const { switchCode, image } = bladeSwitch
     
-    const newSwitch = Switch.create({
+    const newSwitch = await Switch.create({
         switchCode,
         image
     })
@@ -77,10 +97,10 @@ const switchesInDB = await Promise.all(switchData.map((bladeSwitch) => {
 }))
 
 // add pommelData to database
-const pommelsInDB = await Promise.all(pommelData.map((pommel) => {
+const pommelsInDB = (pommelData.map(async (pommel) => {
     const { pommelCode, image } = pommel
     
-    const newPommel = Pommel.create({
+    const newPommel = await Pommel.create({
         pommelCode,
         image
     })
@@ -89,11 +109,11 @@ const pommelsInDB = await Promise.all(pommelData.map((pommel) => {
 }))
 
 // add soundfontData to database
-const soundfontsInDB = await Promise.all(soundfontData.map((soundfont) => {
+const soundfontsInDB = (soundfontData.map(async (soundfont) => {
     const { soundfontCode, clash1, clash2, clash3, deactivate, deflect, hum, 
         ignite, swoosh1, swoosh2, swoosh3 } = soundfont
         
-    const newSoundfont = Soundfont.create({
+    const newSoundfont = await Soundfont.create({
         soundfontCode,
         clash1,
         clash2,
@@ -111,10 +131,10 @@ const soundfontsInDB = await Promise.all(soundfontData.map((soundfont) => {
 }))
 
 // add userData to database
-const usersInDB = await Promise.all(userData.map((user) => {
+const usersInDB = (userData.map(async (user) => {
     const { username, password } = user
     
-    const newUser = User.create({
+    const newUser = await User.create({
         username,
         password,
     })
@@ -123,15 +143,13 @@ const usersInDB = await Promise.all(userData.map((user) => {
 }))
 
 // add saberData to database
-const sabersInDB = await Promise.all(saberData.map((saber) => {
+const sabersInDB = (saberData.map(async (saber) => {
     const { isDefault, name, colorId, bladeStyle, emitterId, coloredEmitterId,
          guardId, switchId, pommelId, isDoubleBladed, emitter2Id, 
          coloredEmitter2Id, guard2Id, switch2Id, userId, soundfontId, 
          isPublic } = saber
 
-         console.log('saber:', saber)
-
-         const newSaber = Saber.create({
+         const newSaber = await Saber.create({
             isDefault: isDefault,
             name: name,
             colorId: colorId,
@@ -151,19 +169,17 @@ const sabersInDB = await Promise.all(saberData.map((saber) => {
             isPublic: isPublic
          })
 
-         console.log('newSaber:', newSaber)
-
          return newSaber
 }))
 
 console.log('sabersInDB:', sabersInDB)
 
 // add postData to database
-const postsInDB = await Promise.all(postData.map((post) => {
+const postsInDB = (postData.map(async (post) => {
     console.log("HELLO THERE")
     const { userId, saberId, body } = post
 
-    const newPost = Post.create({
+    const newPost = await Post.create({
         userId,
         saberId,
         body
