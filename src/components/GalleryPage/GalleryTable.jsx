@@ -2,20 +2,13 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import GalleryTableCell from './GalleryTableCell.jsx'
 
+const saberData = await axios.get('/api/gallery')
+
 const GalleryTable = () => {
 
-    const [saberData, setSaberData] = useState([])
+    console.log('saberData.data:', saberData.data)
 
-    useEffect(() => {
-        axios.get('/api/gallery')
-            .then((res) => {
-                setSaberData(res.data)
-            })
-    }, [])
-
-    console.log('saberData:', saberData)
-
-    const rows = saberData.map((el) => <GalleryTableCell 
+    const rows = saberData.data.map((el) => <GalleryTableCell 
         saber={el}
         saberId={el.saberId}
         key={el.saberId}

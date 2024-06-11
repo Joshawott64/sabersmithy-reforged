@@ -1,4 +1,4 @@
-const ForgeComponentsLeft = ({emitters, setClientEmitter, guards, setClientGuard, switches, setClientSwitch, pommels, setClientPommel}) => {
+const ForgeComponentsLeft = ({colors, setClientColor, emitters, setClientEmitter, guards, setClientGuard, switches, setClientSwitch, pommels, setClientPommel, forgeMode}) => {
 
     const emitterList = emitters.map((el) => <img 
         src={el.image} 
@@ -28,6 +28,13 @@ const ForgeComponentsLeft = ({emitters, setClientEmitter, guards, setClientGuard
         onClick={() => setClientPommel(el)}
     />)
 
+    const colorList = colors.map((el) => <img 
+        src={el.image}
+        alt={el.colorCode}
+        key={el.colorId}
+        onClick={() => setClientColor(el)}
+    />)
+
     return (
         <ul>
             <li key="emitters">
@@ -39,9 +46,15 @@ const ForgeComponentsLeft = ({emitters, setClientEmitter, guards, setClientGuard
             <li key="switches">
                 { switchList }
             </li>
-            <li key="pommels">
+            {forgeMode === 'Single' && <li key="pommels">
                 { pommelList }
-            </li>
+            </li>}
+            {forgeMode === 'Double' && <li key="colors">
+                { colorList }
+            </li>}
+            {forgeMode === 'Double' && <li>
+                Blade Styles go here
+            </li>}
         </ul>
     )
 }

@@ -18,7 +18,7 @@ const { getSabers, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber
 
 app.get('/api/gallery', getSabers)
 app.post('/api/gallery/urls', getSaberUrls)
-app.post('/api/forge', addSaber)
+app.post('/api/forge/add', addSaber)
 app.get('/api/forge/components', getComponents)
 app.delete('/api/delete/:id', deleteSaber)
 app.put('/api/edit/:id', editSaber)

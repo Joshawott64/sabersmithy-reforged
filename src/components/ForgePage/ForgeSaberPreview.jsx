@@ -1,4 +1,4 @@
-const ForgeSaberPreview = ({clientEmitter, clientGuard, clientSwitch, clientPommel}) => {
+const ForgeSaberPreview = ({clientEmitter, clientEmitter2, clientGuard, clientGuard2, clientSwitch, clientSwitch2, clientPommel, forgeMode}) => {
 
     return (
         <ul>
@@ -11,9 +11,18 @@ const ForgeSaberPreview = ({clientEmitter, clientGuard, clientSwitch, clientPomm
             <li>
                 <img src={clientSwitch.image} alt={clientSwitch.switchCode} />
             </li>
-            <li>
+            {forgeMode === 'Single' && <li>
                 <img src={clientPommel.image} alt={clientPommel.pommelCode} />
-            </li>
+            </li>}
+            {forgeMode === 'Double' && <li>
+                <img src={clientSwitch2.image} alt={clientSwitch2.switchCode} />
+            </li>}
+            {forgeMode === 'Double' && <li>
+                <img src={clientGuard2.image} alt={clientGuard2.guardCode} />
+            </li>}
+            {forgeMode === 'Double' && <li>
+                <img src={clientEmitter2.image} alt={clientEmitter2.emitterCode} />
+            </li>}
         </ul>
     )
 }

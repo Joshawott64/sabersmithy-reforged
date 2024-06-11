@@ -94,6 +94,10 @@ const queryFunctions = {
         return guardImage.image
     },
     getSaberSwitchImage: async (saber) => {
+        if (saber.switchId === null) {
+            return ''
+        }
+
         const switchImage = await Switch.findOne({
             attributes: [ 'image' ],
             where: { switchId: saber.switchId }

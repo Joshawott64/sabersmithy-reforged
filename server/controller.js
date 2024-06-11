@@ -1,4 +1,5 @@
-import { Saber, 
+import { 
+    Saber, 
     Color, 
     Emitter, 
     ColoredEmitter, 
@@ -36,7 +37,7 @@ const {
 const saberData = await getAllSabers()
 
 const handlerFunctions = {
-    getSabers: (req, res) => {
+    getSabers: async (req, res) => {
         res.status(200).send(saberData)
     },
     getSaberUrls: async (req, res) => {
