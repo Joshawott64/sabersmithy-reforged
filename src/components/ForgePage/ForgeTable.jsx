@@ -14,11 +14,11 @@ const ForgeTable = () => {
 
     // state values for client-side saber components
     const [clientEmitter, setClientEmitter] = useState(emitters[1])
-    const [clientEmitter2, setClientEmitter2] = useState(null)
+    const [clientEmitter2, setClientEmitter2] = useState(emitters[1])
     const [clientGuard, setClientGuard] = useState(guards[1])
-    const [clientGuard2, setClientGuard2] = useState(null)
+    const [clientGuard2, setClientGuard2] = useState(guards[1])
     const [clientSwitch, setClientSwitch] = useState(switches[1])
-    const [clientSwitch2, setClientSwitch2] = useState(null)
+    const [clientSwitch2, setClientSwitch2] = useState(switches[1])
     const [clientPommel, setClientPommel] = useState(pommels[1])
     const [clientColor, setClientColor] = useState(colors[1])
     const [clientBladeStyle, setClientBladeStyle] = useState('Stable')
