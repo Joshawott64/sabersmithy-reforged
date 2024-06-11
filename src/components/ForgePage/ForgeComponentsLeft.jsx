@@ -1,17 +1,47 @@
-const ForgeComponentsLeft = ({emitters, guards, switches, pommels}) => {
+const ForgeComponentsLeft = ({emitters, setClientEmitter, guards, setClientGuard, switches, setClientSwitch, pommels, setClientPommel}) => {
 
-    console.log('emitters:', emitters)
+    const emitterList = emitters.map((el) => <img 
+        src={el.image} 
+        alt={el.emitterCode}
+        key={el.emitterId}
+        onClick={() => setClientEmitter(el)}
+    />)
+
+    const guardList = guards.map((el) => <img 
+        src={el.image} 
+        alt={el.guardCode} 
+        key={el.guardId}
+        onClick={() => setClientGuard(el)}
+    />)
+
+    const switchList = switches.map((el) => <img 
+        src={el.image} 
+        alt={el.switchCode} 
+        key={el.switchId}
+        onClick={() => setClientSwitch(el)}
+    />)
+
+    const pommelList = pommels.map((el) => <img 
+        src={el.image} 
+        alt={el.pommelCode} 
+        key={el.pommelId}
+        onClick={() => setClientPommel(el)}
+    />)
 
     return (
         <ul>
-            <li>
-                <ul>
-                    {/* { emitterList } */}
-                </ul>
+            <li key="emitters">
+                { emitterList }
             </li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li key="guards">
+                { guardList }
+            </li>
+            <li key="switches">
+                { switchList }
+            </li>
+            <li key="pommels">
+                { pommelList }
+            </li>
         </ul>
     )
 }

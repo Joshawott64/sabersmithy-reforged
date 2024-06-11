@@ -1,7 +1,7 @@
 import React from "react"
 import ForgeTable from "../components/ForgePage/ForgeTable"
 
-function ForgePage() {
+const ForgePage =  () => {
     return (
         <>
             <h1>Forge Page</h1>
