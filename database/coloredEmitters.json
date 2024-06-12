@@ -193,67 +193,67 @@
     },
     {
         "coloredEmitterCode": "DarkBlackStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlack"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlack.png"
     },
     {
         "coloredEmitterCode": "DarkBlackUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlack"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlack.png"
     },
     {
         "coloredEmitterCode": "DarkBlueStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlue"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlue.png"
     },
     {
         "coloredEmitterCode": "DarkBlueUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlue"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlue.png"
     },
     {
         "coloredEmitterCode": "DarkGreenStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkBlack"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkGreen.png"
     },
     {
         "coloredEmitterCode": "DarkGreenUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkGreen"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkGreen.png"
     },
     {
         "coloredEmitterCode": "DarkOrangeStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkOrange"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkOrange.png"
     },
     {
         "coloredEmitterCode": "DarkOrangeUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkOrange"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkOrange.png"
     },
     {
         "coloredEmitterCode": "DarkPurpleStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkPurple"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkPurple.png"
     },
     {
         "coloredEmitterCode": "DarkPurpleUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkPurple"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkPurple.png"
     },
     {
         "coloredEmitterCode": "DarkRedStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRed"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRed.png"
     },
     {
         "coloredEmitterCode": "DarkRedUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRed"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRed.png"
     },
     {
         "coloredEmitterCode": "DarkSilverStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkSilver"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkSilver.png"
     },
     {
         "coloredEmitterCode": "DarkSilverUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkSilver"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkSilver.png"
     },
     {
         "coloredEmitterCode": "DarkYellowStable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkYellow"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkYellow.png"
     },
     {
         "coloredEmitterCode": "DarkYellowUnstable",
-        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkYellow"
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkYellow.png"
     },
     {
         "coloredEmitterCode": "LukeBlackStable",

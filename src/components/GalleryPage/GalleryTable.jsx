@@ -3,10 +3,9 @@ import axios from 'axios'
 import GalleryTableCell from './GalleryTableCell.jsx'
 
 const saberData = await axios.get('/api/gallery')
+console.log('saberData.data:', saberData.data)
 
 const GalleryTable = () => {
-
-    console.log('saberData.data:', saberData.data)
 
     const rows = saberData.data.map((el) => <GalleryTableCell 
         saber={el}

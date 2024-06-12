@@ -61,6 +61,13 @@ const queryFunctions = {
 
         return pommelData
     },
+    getAllSoundFonts: async () => {
+        const soundfontData = await Soundfont.findAll({
+            order: ['soundfontId']
+        })
+
+        return soundfontData
+    },
     getSaberColorImage: async (saber) => {
         const colorImage = await Color.findOne({
             attributes: [ 'image' ],
@@ -164,6 +171,13 @@ const queryFunctions = {
         })
 
         return switch2Image.image
+    },
+    determineColoredEmitter: async (name, color, style) => {
+        const testEmitter = await ColoredEmitter.findOne({
+            where: { coloredEmitterCode: `${name}${color}${style}` }
+        })
+
+        return testEmitter
     }
 }
 

@@ -1,13 +1,17 @@
-const ForgeComponentsRight = ({handleForgeMode, colors, setClientColor, emitters, setClientEmitter2, guards, setClientGuard2, switches, setClientSwitch2, forgeMode}) => {
+import React from "react"
+
+const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientColor, emitters, clientEmitter, clientEmitter2, setClientEmitter2, setClientColoredEmitter, setClientColoredEmitter2, guards, setClientGuard2, switches, setClientSwitch2, soundfonts, setClientSoundfont, clientBladeStyle, setClientBladeStyle, forgeMode, updateColoredEmitter}) => {
 
     const emitterList = emitters.map((el) => <img 
         src={el.image} 
         alt={el.emitterCode}
         key={el.emitterId}
-        onClick={() => setClientEmitter2(el)}
+        onClick={() => {
+            setClientEmitter2(el)
+            updateColoredEmitter(el.emitterCode, clientColor.colorCode, clientBladeStyle)
+            }
+        }
     />)
-
-    console.log('emitters:', emitters)
 
     const guardList = guards.map((el) => <img 
         src={el.image} 
@@ -27,8 +31,22 @@ const ForgeComponentsRight = ({handleForgeMode, colors, setClientColor, emitters
         src={el.image}
         alt={el.colorCode}
         key={el.colorId}
-        onClick={() => setClientColor(el)}
+        onClick={() => {
+            setClientColor(el)
+            updateColoredEmitter(clientEmitter.emitterCode, el.colorCode, clientBladeStyle)
+            }
+        }
     />)
+
+    const soundfontList = soundfonts.map((el) => <React.Fragment key={el.soundfontId}>
+        <input
+        type="radio"
+        key={el.soundfontId}
+        name="soundfonts"
+        onChange={() => setClientSoundfont(el)}
+        />
+        <label htmlFor="soundfonts">{el.soundfontCode}</label>
+    </React.Fragment>)
 
     return (
         <ul>
@@ -45,10 +63,21 @@ const ForgeComponentsRight = ({handleForgeMode, colors, setClientColor, emitters
                 { switchList }
             </li>}
             <li>
-                Soundfonts go here
+                { soundfontList }
             </li>
             {forgeMode === 'Single' && <li>
-                Blade Styles go here
+            <input type="radio" id="stable" name="blade_style" onChange={() => {
+                    setClientBladeStyle('Stable')
+                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
+                    }
+                } />
+                <label htmlFor="stable">Stable</label>
+                <input type="radio" id="unstable" name="blade_style" onChange={() => {
+                    setClientBladeStyle('Unstable')
+                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
+                    }
+                } />
+                <label htmlFor="unstable">Unstable</label>
             </li>}
             <li>
                 <input type="radio" id="single" name="num_blades" onChange={() => handleForgeMode('Single')}/>

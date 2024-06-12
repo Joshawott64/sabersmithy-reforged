@@ -1,10 +1,13 @@
-const ForgeSaberPreview = ({clientEmitter, clientEmitter2, clientGuard, clientGuard2, clientSwitch, clientSwitch2, clientPommel, forgeMode}) => {
+const ForgeSaberPreview = ({clientEmitter, clientEmitter2, clientColoredEmitter, clientColoredEmitter2, clientGuard, clientGuard2, clientSwitch, clientSwitch2, clientPommel, forgeMode, isBladeOn}) => {
 
     return (
         <ul>
-            <li>
+            {!isBladeOn && <li>
                 <img src={clientEmitter.image} alt={clientEmitter.emitterCode} />
-            </li>
+            </li>}
+            {isBladeOn && <li>
+                <img src={clientColoredEmitter.image} alt={clientColoredEmitter.coloredEmitterCode} />
+            </li>}
             <li>
                 <img src={clientGuard.image} alt={clientGuard.guardCode} />
             </li>

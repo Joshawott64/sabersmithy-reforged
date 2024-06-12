@@ -22,6 +22,7 @@ const {
     getAllGuards,
     getAllSwitches,
     getAllPommels, 
+    getAllSoundFonts,
     getSaberColorImage, 
     getSaberEmitterImage, 
     getSaberColoredEmitterImage, 
@@ -31,7 +32,8 @@ const {
     getSaberEmitter2Image, 
     getSaberColoredEmitter2Image, 
     getSaberGuard2Image, 
-    getSaberSwitch2Image
+    getSaberSwitch2Image,
+    determineColoredEmitter
 } = queryFunctions
 
 const saberData = await getAllSabers()
@@ -65,6 +67,7 @@ const handlerFunctions = {
             guards: await getAllGuards(),
             switches: await getAllSwitches(),
             pommels: await getAllPommels(),
+            soundfonts: await getAllSoundFonts()
         }
 
         res.status(200).send(componentData)
@@ -102,7 +105,18 @@ const handlerFunctions = {
         const selectedSaber = await Saber.findByPk(id)
 
         res.status(200).send(selectedSaber)
+    },
+    queryColoredEmitter: async (req, res) => {
+        console.log('req.body:', req.body)
+        const {name, color, style} = req.body
+
+        const coloredEmitter = await determineColoredEmitter(name, color, style)
+
+        console.log("coloredEmitter:", coloredEmitter)
+
+        res.status(200).send(coloredEmitter)
     }
+
 }
 
 export default handlerFunctions

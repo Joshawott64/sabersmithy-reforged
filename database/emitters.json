@@ -1,34 +1,34 @@
 [
     {
-        "emitterCode": "AhsokaEmitter",
+        "emitterCode": "Ahsoka",
         "image": "../src/assets/SaberParts/AhsokaEmitter.png"
     },
     {
-        "emitterCode": "AnakinEmitter",
+        "emitterCode": "Anakin",
         "image": "../src/assets/SaberParts/AnakinEmitter.png"
     },
     {
-        "emitterCode": "CalEmitter",
+        "emitterCode": "Cal",
         "image": "../src/assets/SaberParts/CalEmitter.png"
     },
     {
-        "emitterCode": "DarkEmitter",
+        "emitterCode": "Dark",
         "image": "../src/assets/SaberParts/DarkEmitter.png"
     },
     {
-        "emitterCode": "LukeEmitter",
+        "emitterCode": "Luke",
         "image": "../src/assets/SaberParts/LukeEmitter.png"
     },
     {
-        "emitterCode": "Orig1Emitter",
+        "emitterCode": "Orig1",
         "image": "../src/assets/SaberParts/Orig1Emitter.png"
     },
     {
-        "emitterCode": "Orig2Emitter",
+        "emitterCode": "Orig2",
         "image": "../src/assets/SaberParts/Orig2Emitter.png"
     },
     {
-        "emitterCode": "VaderEmitter",
+        "emitterCode": "Vader",
         "image": "../src/assets/SaberParts/VaderEmitter.png"
     }
 ]

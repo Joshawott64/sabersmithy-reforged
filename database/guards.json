@@ -1,34 +1,34 @@
 [
     {
-        "guardCode": "AhsokaGuard",
+        "guardCode": "Ahsoka",
         "image": "../src/assets/SaberParts/AhsokaGuard.png"
     },
     {
-        "guardCode": "AnakinGuard",
+        "guardCode": "Anakin",
         "image": "../src/assets/SaberParts/AnakinGuard.png"
     },
     {
-        "guardCode": "CalGuard",
+        "guardCode": "Cal",
         "image": "../src/assets/SaberParts/CalGuard.png"
     },
     {
-        "guardCode": "DarkGuard",
+        "guardCode": "Dark",
         "image": "../src/assets/SaberParts/DarkGuard.png"
     },
     {
-        "guardCode": "LukeGuard",
+        "guardCode": "Luke",
         "image": "../src/assets/SaberParts/LukeGuard.png"
     },
     {
-        "guardCode": "Orig1Guard",
+        "guardCode": "Orig1",
         "image": "../src/assets/SaberParts/Orig1Guard.png"
     },
     {
-        "guardCode": "Orig2Guard",
+        "guardCode": "Orig2",
         "image": "../src/assets/SaberParts/Orig2Guard.png"
     },
     {
-        "guardCode": "VaderGuard",
+        "guardCode": "Vader",
         "image": "../src/assets/SaberParts/VaderGuard.png"
     }
 ]
