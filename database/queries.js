@@ -161,7 +161,7 @@ const queryFunctions = {
         return guard2Image.image
     },
     getSaberSwitch2Image: async (saber) => {
-        if (saber.emitter2Id === null) {
+        if (saber.switch2Id === null) {
             return ''
         }
 

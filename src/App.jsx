@@ -22,7 +22,6 @@ function App() {
           <button onClick={() => navigate('/home')}>/home</button>
           <button onClick={() => navigate('/forge')}>/forge</button>
           <button onClick={() => navigate('/gallery')}>/gallery</button>
-          <button onClick={() => navigate('/edit')}>/edit</button>
           <button onClick={() => navigate('/forum')}>/forum</button>
           <button onClick={() => navigate('/minigames')}>/minigames</button>
           <button onClick={() => navigate('/select')}>/select</button>

@@ -79,12 +79,28 @@ const handlerFunctions = {
         res.status(200).send(saberData)
     },
     editSaber: async (req, res) => {
+        console.log('YOU MADE IT HERE')
+        console.log('req.body:', req.body)
         const {id} = req.params
+        console.log('id:', id)
         const saberToEdit = await Saber.findByPk(id)
+        console.log('saberToEdit:', saberToEdit)
 
-        for (let component in saberToEdit) {
-            saberToEdit[component] = req.body.component
-        }
+        // tried to use a for-in loop and couldn't get it to work (might come back to this later)
+        saberToEdit.name = req.body.name
+        saberToEdit.colorId = req.body.colorId
+        saberToEdit.bladeStyle = req.body.bladeStyle
+        saberToEdit.emitterId = req.body.emitterId
+        saberToEdit.coloredEmitterId = req.body.coloredEmitterId
+        saberToEdit.guardId = req.body.guardId
+        saberToEdit.switchId = req.body.switchId
+        saberToEdit.pommelId = req.body.pommelId
+        saberToEdit.isDoubleBladed = req.body.isDoubleBladed
+        saberToEdit.emitter2Id = req.body.emitter2Id
+        saberToEdit.guard2Id = req.body.guard2Id
+        saberToEdit.switch2Id = req.body.switch2Id
+        saberToEdit.soundfontId = req.body.soundfontId
+
 
         await saberToEdit.save()
 
