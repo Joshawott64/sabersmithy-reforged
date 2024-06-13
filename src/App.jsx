@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './App.css'
 import sabersmithyTitle from './assets/GUIComponents/Sabersmithy.png'
@@ -18,7 +19,7 @@ function App() {
         </div>
         <div>
           <button onClick={() => navigate('/login')}>/login</button>
-          <button onClick={() => navigate('/new')}>/new</button>
+          <button onClick={() => navigate('/register')}>/register</button>
           <button onClick={() => navigate('/home')}>/home</button>
           <button onClick={() => navigate('/forge')}>/forge</button>
           <button onClick={() => navigate('/gallery')}>/gallery</button>

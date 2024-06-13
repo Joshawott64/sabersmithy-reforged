@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 import ForgeComponentsLeft from "./ForgeComponentsLeft"
 import ForgeComponentsRight from "./ForgeComponentsRight"
 import ForgeSaberPreview from "./ForgeSaberPreview"
@@ -7,6 +8,8 @@ import ForgeSaberPreview from "./ForgeSaberPreview"
 const componentData = await axios.get('/api/forge/components')
 
 const ForgeTable = () => {
+
+    const navigate = useNavigate()
 
     console.log('componentData.data:', componentData.data)
 
@@ -189,7 +192,15 @@ const ForgeTable = () => {
                 <tr>
                     <td>
                         <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
-                        <button onClick={addSaber}>Save</button>
+                        <button onClick={() => {
+                                // handleBladeToggle()
+                                addSaber()
+                                navigate('/home')
+                            }}>Save</button>
+                            <button onClick={() => {
+                                // handleBladeToggle()
+                                navigate('/home')
+                            }}>Discard</button>
                         <button onClick={() => handleBladeToggle()}>Toggle Blade</button>
                     </td>
                 </tr>

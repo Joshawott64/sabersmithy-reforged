@@ -15,7 +15,7 @@ import GalleryPage from './pages/GalleryPage.jsx'
 import HomePage from './pages/HomePage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import MinigameSelectPage from './pages/MinigameSelectPage.jsx'
-import NewUserPage from './pages/NewUserPage.jsx'
+import NewUserPage from './pages/RegisterPage.jsx'
 import SaberSelectPage from './pages/SaberSelectPage.jsx'
 import './index.css'
 import axios from 'axios'
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
       />
 
       <Route
-        path='new'
+        path='register'
         element={<NewUserPage />}
       />
 

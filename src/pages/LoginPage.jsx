@@ -1,15 +1,31 @@
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 function LoginPage() {
+
+    const navigate = useNavigate()
+
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(`Hello there, ${username}`)
+        // check if username and password are in the database
+        // if so, navigate them to home page
+        // otherwise keep them here
+    }
+
     return (
         <>
-            <h1>Login Page</h1>
-            <ul>
-                <li>Username form</li>
-                <li>Password form</li>
-            </ul>
-            <div>
-                <p>Login Button</p>
-                <p>New User Button</p>
-            </div>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username:</label>
+                <input value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
+                <label htmlFor="password">Password:</label>
+                <input value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
+                <button type="submit">Log In</button>
+            </form>
+            <button onClick={() => navigate('/register')}>New to Sabersmithy? Register here.</button>
         </>
     )
 }
