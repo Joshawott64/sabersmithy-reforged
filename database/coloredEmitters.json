@@ -61,7 +61,7 @@
     },
     {
         "coloredEmitterCode": "AhsokaYellowUnstable",
-        "image": "../src/assets/ColoredEmitters/AhsokaEmitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/AhsokaEmitter/AhsokaYellowUnstable.png"
     },
     {
         "coloredEmitterCode": "AnakinBlackStable",
@@ -81,7 +81,7 @@
     },
     {
         "coloredEmitterCode": "AnakinGreenStable",
-        "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinBlackStable.png"
+        "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinGreenStable.png"
     },
     {
         "coloredEmitterCode": "AnakinGreenUnstable",
@@ -125,7 +125,7 @@
     },
     {
         "coloredEmitterCode": "AnakinYellowUnstable",
-        "image": "../src/assets/ColoredEmitters/AnakinEmitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinYellowUnstable.png"
     },
     {
         "coloredEmitterCode": "CalBlackStable",
@@ -145,7 +145,7 @@
     },
     {
         "coloredEmitterCode": "CalGreenStable",
-        "image": "../src/assets/ColoredEmitters/CalEmitter/CalBlackStable.png"
+        "image": "../src/assets/ColoredEmitters/CalEmitter/CalGreenStable.png"
     },
     {
         "coloredEmitterCode": "CalGreenUnstable",
@@ -189,7 +189,7 @@
     },
     {
         "coloredEmitterCode": "CalYellowUnstable",
-        "image": "../src/assets/ColoredEmitters/CalEmitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/CalEmitter/CalYellowUnstable.png"
     },
     {
         "coloredEmitterCode": "DarkBlackStable",
@@ -273,7 +273,7 @@
     },
     {
         "coloredEmitterCode": "LukeGreenStable",
-        "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeBlackStable.png"
+        "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeGreenStable.png"
     },
     {
         "coloredEmitterCode": "LukeGreenUnstable",
@@ -317,7 +317,7 @@
     },
     {
         "coloredEmitterCode": "LukeYellowUnstable",
-        "image": "../src/assets/ColoredEmitters/LukeEmitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeYellowUnstable.png"
     },
     {
         "coloredEmitterCode": "Orig1BlackStable",
@@ -337,7 +337,7 @@
     },
     {
         "coloredEmitterCode": "Orig1GreenStable",
-        "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1BlackStable.png"
+        "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1GreenStable.png"
     },
     {
         "coloredEmitterCode": "Orig1GreenUnstable",
@@ -381,7 +381,7 @@
     },
     {
         "coloredEmitterCode": "Orig1YellowUnstable",
-        "image": "../src/assets/ColoredEmitters/Orig1Emitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1YellowUnstable.png"
     },
     {
         "coloredEmitterCode": "Orig2BlackStable",
@@ -401,7 +401,7 @@
     },
     {
         "coloredEmitterCode": "Orig2GreenStable",
-        "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2BlackStable.png"
+        "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2GreenStable.png"
     },
     {
         "coloredEmitterCode": "Orig2GreenUnstable",
@@ -445,7 +445,7 @@
     },
     {
         "coloredEmitterCode": "Orig2YellowUnstable",
-        "image": "../src/assets/ColoredEmitters/Orig2Emitter/TemYellowUnstable.png"
+        "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2YellowUnstable.png"
     },
     {
         "coloredEmitterCode": "VaderBlackStable",
@@ -465,7 +465,7 @@
     },
     {
         "coloredEmitterCode": "VaderGreenStable",
-        "image": "../src/assets/ColoredEmitters/VaderEmitter/VaderBlackStable.png"
+        "image": "../src/assets/ColoredEmitters/VaderEmitter/VaderGreenStable.png"
     },
     {
         "coloredEmitterCode": "VaderGreenUnstable",

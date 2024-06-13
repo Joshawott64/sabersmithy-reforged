@@ -1,6 +1,6 @@
 import React from "react"
 
-const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientColor, emitters, clientEmitter, clientEmitter2, setClientEmitter2, setClientColoredEmitter, setClientColoredEmitter2, guards, setClientGuard2, switches, setClientSwitch2, soundfonts, setClientSoundfont, clientBladeStyle, setClientBladeStyle, forgeMode, updateColoredEmitter}) => {
+const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientColor, emitters, clientEmitter, clientEmitter2, setClientEmitter2, setClientColoredEmitter, setClientColoredEmitter2, guards, setClientGuard2, switches, setClientSwitch2, soundfonts, setClientSoundfont, clientBladeStyle, setClientBladeStyle, forgeMode, updateColoredEmitter, updateColoredEmitter2}) => {
 
     const emitterList = emitters.map((el) => <img 
         src={el.image} 
@@ -8,7 +8,7 @@ const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientCo
         key={el.emitterId}
         onClick={() => {
             setClientEmitter2(el)
-            updateColoredEmitter(el.emitterCode, clientColor.colorCode, clientBladeStyle)
+            updateColoredEmitter2(el.emitterCode, clientColor.colorCode, clientBladeStyle)
             }
         }
     />)
@@ -34,6 +34,7 @@ const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientCo
         onClick={() => {
             setClientColor(el)
             updateColoredEmitter(clientEmitter.emitterCode, el.colorCode, clientBladeStyle)
+            updateColoredEmitter2(clientEmitter2.emitterCode, el.colorCode, clientBladeStyle)
             }
         }
     />)
@@ -66,18 +67,17 @@ const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientCo
                 { soundfontList }
             </li>
             {forgeMode === 'Single' && <li>
-            <input type="radio" id="stable" name="blade_style" onChange={() => {
+                <button onClick={() => {
                     setClientBladeStyle('Stable')
-                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
-                    }
-                } />
-                <label htmlFor="stable">Stable</label>
-                <input type="radio" id="unstable" name="blade_style" onChange={() => {
+                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')
+                    updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Stable')
+                }}>Stable</button>
+
+                <button onClick={() => {
                     setClientBladeStyle('Unstable')
-                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
-                    }
-                } />
-                <label htmlFor="unstable">Unstable</label>
+                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Unstable')
+                    updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Unstable')
+                }}>Unstable</button>
             </li>}
             <li>
                 <input type="radio" id="single" name="num_blades" onChange={() => handleForgeMode('Single')}/>

@@ -30,6 +30,7 @@ const GalleryTableCell = ({saber, saberId}) => {
             <td>
                 <GalleryEditButton 
                     saber={saber}
+                    urls={urls}
                 />
             </td>
             <td>

@@ -43,19 +43,19 @@ const ForgeTable = () => {
             isDefault: false,
             name: clientName,
             colorId: clientColor.colorId,
-            bladeStyle: clientBladeStyle, // change this once bladestyles are changable
+            bladeStyle: clientBladeStyle,
             emitterId: clientEmitter.emitterId,
-            coloredEmitterId: clientColoredEmitter.coloredEmitterId, // change this once colored emitters can be dynamically selected
+            coloredEmitterId: clientColoredEmitter.coloredEmitterId,
             guardId: clientGuard.guardId,
             switchId: clientSwitch.switchId,
             pommelId: clientPommel.pommelId,
-            isDoubleBladed: clientIsDouble, // change this once double sabers are implemented
+            isDoubleBladed: clientIsDouble,
             emitter2Id: clientEmitter2.emitterId,
             coloredEmitter2Id: clientColoredEmitter2.coloredEmitterId,
             guard2Id: clientGuard2.guardId,
             switch2Id: clientSwitch2.switchId,
             userId: 2, // change this once user login is implemented
-            soundfontId: clientSoundfont.soundfontId, // coded to select sound based on color (will change once soundfont selection is implemented)
+            soundfontId: clientSoundfont.soundfontId,
             isPublic: false // on the fence about even keeping this key
         }
 
@@ -105,7 +105,12 @@ const ForgeTable = () => {
         setClientColoredEmitter(updatedColoredEmitter.data)
     }
 
-    console.log('forgeMode:', forgeMode)
+    const updateColoredEmitter2 = async (name, color, style) => {
+        console.log('Updated colored emitter 2')
+        const updatedColoredEmitter2 = await axios.post('/api/forge/coloredEmitter', {name: name, color: color, style: style})
+        
+        setClientColoredEmitter2(updatedColoredEmitter2.data)
+    }
 
     return (
         <table>
@@ -117,6 +122,7 @@ const ForgeTable = () => {
                             setClientColor={setClientColor}
                             emitters={emitters}
                             clientEmitter={clientEmitter}
+                            clientEmitter2={clientEmitter2}
                             setClientEmitter={setClientEmitter}
                             setClientEmitter2={setClientEmitter2}
                             setClientColoredEmitter={setClientColoredEmitter}
@@ -131,6 +137,7 @@ const ForgeTable = () => {
                             setClientPommel={setClientPommel}
                             forgeMode={forgeMode}
                             updateColoredEmitter={updateColoredEmitter}
+                            updateColoredEmitter2={updateColoredEmitter2}
                             clientColor={clientColor}
                             clientBladeStyle={clientBladeStyle}
                             setClientBladeStyle={setClientBladeStyle}
@@ -173,6 +180,7 @@ const ForgeTable = () => {
                             setClientBladeStyle={setClientBladeStyle}
                             forgeMode={forgeMode}
                             updateColoredEmitter={updateColoredEmitter}
+                            updateColoredEmitter2={updateColoredEmitter2}
                         />
                     </td>
                 </tr>

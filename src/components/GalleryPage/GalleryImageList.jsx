@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const GalleryImageList = ({saber, urls}) => {
 
-    console.log('urls:', urls)
+    // console.log('urls:', urls)
 
     if (!saber.isDoubleBladed) {
         return (

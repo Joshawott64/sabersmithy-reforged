@@ -1,4 +1,4 @@
-const ForgeComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, setClientEmitter, setClientEmitter2, setClientColoredEmitter, setClientColoredEmitter2, guards, setClientGuard, switches, setClientSwitch, pommels, setClientPommel, forgeMode, updateColoredEmitter, clientColor, clientBladeStyle, setClientBladeStyle}) => {
+const ForgeComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, clientEmitter2, setClientEmitter, setClientEmitter2, setClientColoredEmitter, setClientColoredEmitter2, guards, setClientGuard, switches, setClientSwitch, pommels, setClientPommel, forgeMode, updateColoredEmitter, updateColoredEmitter2, clientColor, clientBladeStyle, setClientBladeStyle}) => {
 
     const emitterList = emitters.map((el) => <img 
         src={el.image} 
@@ -39,6 +39,7 @@ const ForgeComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, s
         onClick={() => {
             setClientColor(el)
             updateColoredEmitter(clientEmitter.emitterCode, el.colorCode, clientBladeStyle)
+            updateColoredEmitter2(clientEmitter2.emitterCode, el.colorCode, clientBladeStyle)
             }
         }
     />)
@@ -61,18 +62,17 @@ const ForgeComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, s
                 { colorList }
             </li>}
             {forgeMode === 'Double' && <li>
-                <input type="radio" id="stable" name="blade_style" onChange={() => {
-                    setClientBladeStyle('Stable')
-                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
-                    }
-                } />
-                <label htmlFor="unstable">Stable</label>
-                <input type="radio" id="unstable" name="blade_style" onChange={() => {
-                    setClientBladeStyle('Unstable')
-                    updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, clientBladeStyle)
-                    }
-                } />
-                <label htmlFor="unstable">Unstable</label>
+                <button onClick={() => {
+                        setClientBladeStyle('Stable')
+                        updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')
+                        updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Stable')
+                    }}>Stable</button>
+
+                    <button onClick={() => {
+                        setClientBladeStyle('Unstable')
+                        updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Unstable')
+                        updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Unstable')
+                    }}>Unstable</button>
             </li>}
         </ul>
     )

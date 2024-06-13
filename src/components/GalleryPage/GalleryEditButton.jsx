@@ -1,6 +1,10 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
-const GalleryEditButton = ({saber}) => {
+const GalleryEditButton = ({saber, urls}) => {
+
+    const navigate = useNavigate()
+
     if (saber.isDefault) {
         return (
             <>
@@ -10,7 +14,9 @@ const GalleryEditButton = ({saber}) => {
     } else {
         return (
             <>
-                <button>Edit</button>
+                <button onClick={() => {
+                    navigate(`/edit/${saber.saberId}`, {state: {saber: saber, urls: urls}})
+                }}>Edit</button>
             </>
         )
     }
