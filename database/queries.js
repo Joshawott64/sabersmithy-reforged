@@ -178,6 +178,16 @@ const queryFunctions = {
         })
 
         return testEmitter
+    },
+    getUser: async (username, password) => {
+        const user = await User.findOne({
+            where: {
+                username: username,
+                password: password
+            }
+        })
+
+        return user
     }
 }
 

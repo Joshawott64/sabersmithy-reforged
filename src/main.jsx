@@ -1,5 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import axios from 'axios'
+import { Provider } from 'react-redux'
+import store from './redux/store.js'
 import { 
   createBrowserRouter, 
   createRoutesFromElements, 
@@ -18,7 +21,6 @@ import MinigameSelectPage from './pages/MinigameSelectPage.jsx'
 import NewUserPage from './pages/RegisterPage.jsx'
 import SaberSelectPage from './pages/SaberSelectPage.jsx'
 import './index.css'
-import axios from 'axios'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -73,6 +75,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>,
 )

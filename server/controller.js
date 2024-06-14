@@ -33,13 +33,14 @@ const {
     getSaberColoredEmitter2Image, 
     getSaberGuard2Image, 
     getSaberSwitch2Image,
-    determineColoredEmitter
+    determineColoredEmitter,
+    getUser
 } = queryFunctions
-
-const saberData = await getAllSabers()
 
 const handlerFunctions = {
     getSabers: async (req, res) => {
+        const saberData = await getAllSabers()
+        
         res.status(200).send(saberData)
     },
     getSaberUrls: async (req, res) => {
@@ -75,17 +76,14 @@ const handlerFunctions = {
     addSaber: async (req, res) => {
         const newSaber = await Saber.create(req.body)
         console.log(newSaber)
+        const saberData = await getAllSabers()
 
         res.status(200).send(saberData)
     },
     editSaber: async (req, res) => {
-        console.log('YOU MADE IT HERE')
-        console.log('req.body:', req.body)
         const {id} = req.params
-        console.log('id:', id)
         const saberToEdit = await Saber.findByPk(id)
-        console.log('saberToEdit:', saberToEdit)
-
+        
         // tried to use a for-in loop and couldn't get it to work (might come back to this later)
         saberToEdit.name = req.body.name
         saberToEdit.colorId = req.body.colorId
@@ -100,20 +98,25 @@ const handlerFunctions = {
         saberToEdit.guard2Id = req.body.guard2Id
         saberToEdit.switch2Id = req.body.switch2Id
         saberToEdit.soundfontId = req.body.soundfontId
-
-
+        
         await saberToEdit.save()
+        
+        const saberData = await getAllSabers()
 
         res.status(200).send(saberData)
     },
     deleteSaber: async (req, res) => {
         const {id} = req.params
-
+        
         await Saber.destroy({
             where: {
                 saberId: id
             }
         })
+
+        const saberData = await getAllSabers()
+                
+        res.status(200).send(saberData)
     },
     selectSaber: async (req, res) => {
         const {id} = req.params
@@ -123,14 +126,89 @@ const handlerFunctions = {
         res.status(200).send(selectedSaber)
     },
     queryColoredEmitter: async (req, res) => {
-        console.log('req.body:', req.body)
         const {name, color, style} = req.body
 
         const coloredEmitter = await determineColoredEmitter(name, color, style)
 
-        console.log("coloredEmitter:", coloredEmitter)
-
         res.status(200).send(coloredEmitter)
+    },
+    login: async (req, res) => {
+        const { username, password } = req.body
+
+        const user = await getUser(username, password)
+
+        if (!user) {
+            res.send({
+                message: 'no username found',
+                success: false
+            })
+            return
+        }
+
+        if (password !== user.password) {
+            res.send({
+                message: 'password does not match',
+                success: false
+            })
+            return
+        }
+
+        req.session.userId = user.userId
+
+        res.status(200).send({
+            message: 'user logged in',
+            success: true,
+            userId: req.session.userId
+        })
+    },
+    logout: async (req, res) => {
+        req.session.destroy()
+
+        res.send({
+            message: "user logged out",
+            success: true
+        })
+        return
+    },
+    register: async (req, res) => {
+        const { username, password } = req.body
+
+        if (await User.findOne({ where: { username: username } })) {
+            res.send({
+                message: 'username already exists',
+                success: false
+            })
+            return
+        }
+
+        const newUser = await User.create({
+            username: username,
+            password: password
+        })
+
+        req.session.userId = newUser.userId
+
+        res.send({
+            message: 'user created',
+            success: true,
+            userId: newUser.userId
+        })
+    },
+    sessionCheck: async (req, res) => {
+        if (req.session.userId) {
+            res.send({
+                message: 'user is still logged in',
+                success: true,
+                userId: req.session.userId
+            })
+            return
+        } else {
+            res.send({
+                message: 'no user logged in',
+                success: false
+            })
+            return
+        }
     }
 
 }

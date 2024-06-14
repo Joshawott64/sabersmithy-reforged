@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import axios from "axios"
 
 function LoginPage() {
 
@@ -8,17 +10,35 @@ function LoginPage() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const userId = useSelector((state) => state.userId)
+  
+    const dispatch = useDispatch()
+
+    const handleLogin = async (e) => {
+        // e.preventDefault()
         console.log(`Hello there, ${username}`)
-        // check if username and password are in the database
-        // if so, navigate them to home page
-        // otherwise keep them here
+
+        const bodyObj = {
+            username: username,
+            password: password
+        }
+
+        const res = await axios.post('/api/login', bodyObj)
+
+        if (res.data.userId) {
+            dispatch({
+                type: "USER_AUTH",
+                payload: res.data.userId
+            })
+
+            setUsername('')
+            setPassword('')
+        }
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleLogin}>
                 <label htmlFor="username">Username:</label>
                 <input value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
                 <label htmlFor="password">Password:</label>

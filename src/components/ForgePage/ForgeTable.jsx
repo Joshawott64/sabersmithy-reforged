@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
 import ForgeComponentsLeft from "./ForgeComponentsLeft"
 import ForgeComponentsRight from "./ForgeComponentsRight"
 import ForgeSaberPreview from "./ForgeSaberPreview"
@@ -10,6 +11,8 @@ const componentData = await axios.get('/api/forge/components')
 const ForgeTable = () => {
 
     const navigate = useNavigate()
+
+    const userId = useSelector((state) => state.userId)
 
     console.log('componentData.data:', componentData.data)
 
@@ -57,7 +60,7 @@ const ForgeTable = () => {
             coloredEmitter2Id: clientColoredEmitter2.coloredEmitterId,
             guard2Id: clientGuard2.guardId,
             switch2Id: clientSwitch2.switchId,
-            userId: 2, // change this once user login is implemented
+            userId: userId,
             soundfontId: clientSoundfont.soundfontId,
             isPublic: false // on the fence about even keeping this key
         }

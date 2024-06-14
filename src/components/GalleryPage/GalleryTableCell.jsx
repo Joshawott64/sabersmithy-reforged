@@ -4,7 +4,7 @@ import GalleryDeleteButton from './GalleryDeleteButton.jsx'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
-const GalleryTableCell = ({saber, saberId}) => {
+const GalleryTableCell = ({saber, saberId, setSaberData}) => {
 
     const [urls, setUrls] = useState({})
 
@@ -36,6 +36,7 @@ const GalleryTableCell = ({saber, saberId}) => {
             <td>
                 <GalleryDeleteButton 
                     saber={saber}
+                    setSaberData={setSaberData}
                 />
             </td>
         </tr>
