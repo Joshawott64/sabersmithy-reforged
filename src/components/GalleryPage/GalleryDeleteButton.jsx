@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-// import fineAddition from "../src/assets/audio/fine_addition.mp3"
+import fineAddition from "../../../src/assets/audio/fine_addition.mp3"
 
 const GalleryDeleteButton = ({saber, setSaberData}) => {
     const deleteSaber = async () => {
@@ -8,7 +8,7 @@ const GalleryDeleteButton = ({saber, setSaberData}) => {
 
         const newSaberData = await axios.delete(`/api/delete/${saber.saberId}`)
 
-        // new Audio(fineAddition).play()
+        new Audio(fineAddition).play()
 
         console.log('newSaberData:', newSaberData)
 

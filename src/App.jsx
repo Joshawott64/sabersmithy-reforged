@@ -52,17 +52,11 @@ function App() {
         <div>
           <p>Navbar goes here</p>
           <button onClick={handleLogout}>Logout</button>
+          <button onClick={() => navigate('/home')}>Home Page</button>
           <img src={sabersmithyTitle} alt="Sabersmithy" />
           <img src={reforged} alt="Reforged" />
         </div>
         <div>
-          <button onClick={() => navigate('/login')}>/login</button>
-          <button onClick={() => navigate('/register')}>/register</button>
-          <button onClick={() => navigate('/home')}>/home</button>
-          <button onClick={() => navigate('/forge')}>/forge</button>
-          <button onClick={() => navigate('/gallery')}>/gallery</button>
-          <button onClick={() => navigate('/forum')}>/forum</button>
-          <button onClick={() => navigate('/minigames')}>/minigames</button>
           <button onClick={() => navigate('/select')}>/select</button>
         </div>
       </nav>
