@@ -1,12 +1,20 @@
 import React from "react"
 import axios from "axios"
+import { useDispatch, useSelector } from 'react-redux'
 import fineAddition from "../../../src/assets/audio/fine_addition.mp3"
 
 const GalleryDeleteButton = ({saber, setSaberData}) => {
+
+    const userId = useSelector((state) => state.userId)
+  
+    const dispatch = useDispatch()
+
     const deleteSaber = async () => {
         console.log(`Id: ${saber.saberId} will make a fine addition to my collection, hahahahahaaaa.`)
 
-        const newSaberData = await axios.delete(`/api/delete/${saber.saberId}`)
+        await axios.delete(`/api/delete/${saber.saberId}`)
+
+        const newSaberData = await axios.get(`/api/gallery/${userId}`)
 
         new Audio(fineAddition).play()
 

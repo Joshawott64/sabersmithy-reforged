@@ -12,8 +12,17 @@ const { Saber,
 } = await import ('./model.js')
 
 const queryFunctions = {
-    getAllSabers: async () => {
+    getDefaultSabers: async () => {
         const saberData = await Saber.findAll({
+            where: {isDefault: true},
+            order: ['saberId']
+        })
+
+        return saberData
+    },
+    getUserSabers: async (userId) => {
+        const saberData = await Saber.findAll({
+            where: {userId: userId, isDefault: false},
             order: ['saberId']
         })
 
@@ -173,11 +182,11 @@ const queryFunctions = {
         return switch2Image.image
     },
     determineColoredEmitter: async (name, color, style) => {
-        const testEmitter = await ColoredEmitter.findOne({
+        const coloredEmitter = await ColoredEmitter.findOne({
             where: { coloredEmitterCode: `${name}${color}${style}` }
         })
 
-        return testEmitter
+        return coloredEmitter
     },
     getUser: async (username, password) => {
         const user = await User.findOne({
@@ -188,6 +197,11 @@ const queryFunctions = {
         })
 
         return user
+    },
+    getAllPosts: async () => {
+        const posts = await Post.findAll()
+
+        return posts
     }
 }
 

@@ -207,15 +207,17 @@ const EditTable = ({state}) => {
                 <tr>
                     <td>
                         <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
-                        <button onClick={() => {
-                                // handleBladeToggle()
-                                saveChanges()
-                                navigate('/gallery')
-                            }}>Save Changes</button>
-                        <button onClick={() => {
+                        {isBladeOn === false && <button onClick={() => {
+                            // handleBladeToggle()
+                            saveChanges()
+                            navigate('/gallery')
+                        }}>Save Changes</button>}
+                        {isBladeOn && <button disabled>Save Changes</button>}
+                        {isBladeOn === false && <button onClick={() => {
                             // handleBladeToggle()
                             navigate('/gallery')
-                        }}>Discard Changes</button>
+                        }}>Discard Changes</button>}
+                        {isBladeOn && <button disabled>Discard Changes</button>}
                         <button onClick={() => handleBladeToggle()}>Toggle Blade</button>
                     </td>
                 </tr>

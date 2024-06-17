@@ -195,15 +195,17 @@ const ForgeTable = () => {
                 <tr>
                     <td>
                         <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
-                        <button onClick={() => {
-                                // handleBladeToggle()
-                                addSaber()
-                                navigate('/home')
-                            }}>Save</button>
-                            <button onClick={() => {
-                                // handleBladeToggle()
-                                navigate('/home')
-                            }}>Discard</button>
+                        {isBladeOn === false && <button onClick={() => {
+                             // handleBladeToggle()
+                            addSaber()
+                            navigate('/home')
+                        }}>Save</button>}
+                        {isBladeOn && <button disabled>Save</button>}
+                        {isBladeOn === false && <button onClick={() => {
+                            // handleBladeToggle()
+                            navigate('/home')
+                        }}>Discard</button>}
+                        {isBladeOn && <button disabled>Discard</button>}
                         <button onClick={() => handleBladeToggle()}>Toggle Blade</button>
                     </td>
                 </tr>

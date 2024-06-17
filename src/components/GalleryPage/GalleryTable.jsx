@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import GalleryTableCell from './GalleryTableCell.jsx'
 
-let initialSaberData = await axios.get('/api/gallery')
+const initialSaberData = await axios.get('/api/gallery/default-sabers')
 console.log('initialSaberData.data:', initialSaberData.data)
 
 const GalleryTable = () => {
 
     const [saberData, setSaberData] = useState(initialSaberData.data)
 
-    useEffect(() => {
-        console.log('(inside of useEffect) saberData:', saberData)
+    const userId = useSelector((state) => state.userId)
+  
+    const dispatch = useDispatch()
 
-        axios.get('/api/gallery')
-            .then((res) => {
-                console.log('res.data:', res.data)
-                setSaberData(res.data)
-            })
+    useEffect(() => {
+        // console.log('(inside of useEffect) saberData:', saberData)
+        if (userId) {
+            axios.get(`/api/gallery/${userId}`)
+                .then((res) => {
+                    console.log('res.data:', res.data)
+                    setSaberData(res.data)
+                })
+        }
     }, [])
 
-    console.log('(outside of useEffect()) saberData:', saberData)
+    // console.log('(outside of useEffect()) saberData:', saberData)
     
     const rows = saberData.map((el) => <GalleryTableCell 
     saber={el}

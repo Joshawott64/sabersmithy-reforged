@@ -3,6 +3,7 @@ import GalleryEditButton from './GalleryEditButton.jsx'
 import GalleryDeleteButton from './GalleryDeleteButton.jsx'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const GalleryTableCell = ({saber, saberId, setSaberData}) => {
 
@@ -14,6 +15,8 @@ const GalleryTableCell = ({saber, saberId, setSaberData}) => {
                 setUrls(res.data)
             })
     }, [])
+
+    console.log('urls:', urls)
 
     return (
         <tr>

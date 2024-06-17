@@ -14,9 +14,10 @@ app.use(express.json())
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 // endpoints
-const { getSabers, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck } = handlerFunctions
+const { getDefaultSabers, getUserSabers, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck, getPostData } = handlerFunctions
 
-app.get('/api/gallery', getSabers)
+app.get('/api/gallery/default-sabers', getDefaultSabers)
+app.get('/api/gallery/:id', getUserSabers)
 app.post('/api/gallery/urls', getSaberUrls)
 app.post('/api/forge/add', addSaber)
 app.get('/api/forge/components', getComponents)
@@ -28,6 +29,7 @@ app.get('/api/logout', logout)
 app.post('/api/register', register)
 app.get('/api/select:id')
 app.get('/api/session-check', sessionCheck)
+app.get('/api/forum/posts', getPostData)
 
 
 ViteExpress.listen(app, port, () => console.log(`Execute port 66! http://localhost:${port}`))

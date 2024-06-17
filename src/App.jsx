@@ -24,6 +24,7 @@ function App() {
       dispatch({
         type: "LOGOUT"
       })
+      navigate('/login')
     }
   }
 

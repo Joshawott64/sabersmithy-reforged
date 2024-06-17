@@ -15,7 +15,8 @@ import queryFunctions from '../database/queries.js'
 
 // destructure query functions
 const { 
-    getAllSabers,
+    getDefaultSabers,
+    getUserSabers,
     getAllColors,
     getAllEmitters,
     getAllColoredEmitters,
@@ -34,17 +35,29 @@ const {
     getSaberGuard2Image, 
     getSaberSwitch2Image,
     determineColoredEmitter,
-    getUser
+    getUser,
+    getAllPosts
 } = queryFunctions
 
 const handlerFunctions = {
-    getSabers: async (req, res) => {
-        const saberData = await getAllSabers()
+    getDefaultSabers: async (req, res) => {
+        const saberData = await getDefaultSabers()
         
         res.status(200).send(saberData)
     },
+    getUserSabers: async (req, res) => {
+        const {id} = req.params
+        const defaultSaberData = await getDefaultSabers()
+        const userSaberData = await getUserSabers(id)
+        const allSaberData = [...defaultSaberData, ...userSaberData]
+
+        // console.log('allSaberData:', allSaberData)
+
+        res.status(200).send(allSaberData)
+    },
     getSaberUrls: async (req, res) => {
         const saber = req.body
+        console.log('saber:', saber)
         const urls = {
             color: await getSaberColorImage(saber),
             emitter: await getSaberEmitterImage(saber),
@@ -76,9 +89,8 @@ const handlerFunctions = {
     addSaber: async (req, res) => {
         const newSaber = await Saber.create(req.body)
         console.log(newSaber)
-        const saberData = await getAllSabers()
-
-        res.status(200).send(saberData)
+        
+        res.status(200).send("Success")
     },
     editSaber: async (req, res) => {
         const {id} = req.params
@@ -100,10 +112,8 @@ const handlerFunctions = {
         saberToEdit.soundfontId = req.body.soundfontId
         
         await saberToEdit.save()
-        
-        const saberData = await getAllSabers()
 
-        res.status(200).send(saberData)
+        res.status(200).send("Success")
     },
     deleteSaber: async (req, res) => {
         const {id} = req.params
@@ -114,9 +124,13 @@ const handlerFunctions = {
             }
         })
 
-        const saberData = await getAllSabers()
-                
-        res.status(200).send(saberData)
+        const defaultSaberData = await getDefaultSabers()
+        const userSaberData = await getUserSabers(id)
+        const allSaberData = [...defaultSaberData, ...userSaberData]
+
+        console.log('allSaberData:', allSaberData)
+
+        res.status(200).send(allSaberData)
     },
     selectSaber: async (req, res) => {
         const {id} = req.params
@@ -209,6 +223,11 @@ const handlerFunctions = {
             })
             return
         }
+    },
+    getPostData: async (req, res) => {
+        const allPostData = await getAllPosts()
+
+        res.status(200).send(allPostData.data)
     }
 
 }
