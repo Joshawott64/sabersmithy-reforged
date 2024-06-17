@@ -189,14 +189,15 @@ const postsInDB = (postData.map(async (post) => {
 }))
 
 // add likeData to database
-const likesInDB = await Promise.all(usersInDB.flatMap((user) => {
-    const likesOnPost = postsInDB.map(post => {
-        return Like.create({
-            userId: user.userId,
-            postId: post.postId
-        })
+const likesInDB = await Promise.all(likeData.flatMap(async (like) => {
+    const { userId, postId } = like
+
+    const newLike = await Like.create({
+        userId,
+        postId
     })
-    return likesOnPost
+
+    return newLike
 }))
 
 await db.close()

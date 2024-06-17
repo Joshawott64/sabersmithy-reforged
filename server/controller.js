@@ -17,13 +17,15 @@ import queryFunctions from '../database/queries.js'
 const { 
     getDefaultSabers,
     getUserSabers,
+    getSaberById,
+    queryUsernameById,
     getAllColors,
     getAllEmitters,
     getAllColoredEmitters,
     getAllGuards,
     getAllSwitches,
     getAllPommels, 
-    getAllSoundFonts,
+    getAllSoundfonts,
     getSaberColorImage, 
     getSaberEmitterImage, 
     getSaberColoredEmitterImage, 
@@ -36,7 +38,8 @@ const {
     getSaberSwitch2Image,
     determineColoredEmitter,
     getUser,
-    getAllPosts
+    getAllPosts,
+    queryLikesByPostId
 } = queryFunctions
 
 const handlerFunctions = {
@@ -55,9 +58,25 @@ const handlerFunctions = {
 
         res.status(200).send(allSaberData)
     },
+    getSaberById: async (req, res) => {
+        const {id} = req.params
+
+        const saber = await getSaberById(id)
+
+        // console.log('saber:', saber)
+
+        res.status(200).send(saber)
+    },
+    getUserById: async (req, res) => {
+        const {id} = req.params
+
+        const username = await queryUsernameById(id)
+
+        res.status(200).send(username)
+    },
     getSaberUrls: async (req, res) => {
         const saber = req.body
-        console.log('saber:', saber)
+        // console.log('saber:', saber)
         const urls = {
             color: await getSaberColorImage(saber),
             emitter: await getSaberEmitterImage(saber),
@@ -81,14 +100,14 @@ const handlerFunctions = {
             guards: await getAllGuards(),
             switches: await getAllSwitches(),
             pommels: await getAllPommels(),
-            soundfonts: await getAllSoundFonts()
+            soundfonts: await getAllSoundfonts()
         }
 
         res.status(200).send(componentData)
     },
     addSaber: async (req, res) => {
         const newSaber = await Saber.create(req.body)
-        console.log(newSaber)
+        // console.log(newSaber)
         
         res.status(200).send("Success")
     },
@@ -128,7 +147,7 @@ const handlerFunctions = {
         const userSaberData = await getUserSabers(id)
         const allSaberData = [...defaultSaberData, ...userSaberData]
 
-        console.log('allSaberData:', allSaberData)
+        // console.log('allSaberData:', allSaberData)
 
         res.status(200).send(allSaberData)
     },
@@ -227,7 +246,14 @@ const handlerFunctions = {
     getPostData: async (req, res) => {
         const allPostData = await getAllPosts()
 
-        res.status(200).send(allPostData.data)
+        res.status(200).send(allPostData)
+    },
+    getLikes: async (req, res) => {
+        const {id} = req.params
+
+        const likes = await queryLikesByPostId(id)
+
+        res.status(200).send(likes)
     }
 
 }

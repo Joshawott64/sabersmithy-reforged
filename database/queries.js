@@ -28,6 +28,21 @@ const queryFunctions = {
 
         return saberData
     },
+    getSaberById: async (saberId) => {
+        const saberData = await Saber.findOne({
+            where: {saberId: saberId}
+        })
+
+        return saberData
+    },
+    queryUsernameById: async (userId) => {
+        const username = await User.findOne({
+            attributes: [ 'username' ],
+            where: {userId: userId}
+        })
+
+        return username
+    },
     getAllColors: async () => {
         const colorData = await Color.findAll({
             order: ['colorId']
@@ -70,7 +85,7 @@ const queryFunctions = {
 
         return pommelData
     },
-    getAllSoundFonts: async () => {
+    getAllSoundfonts: async () => {
         const soundfontData = await Soundfont.findAll({
             order: ['soundfontId']
         })
@@ -202,6 +217,15 @@ const queryFunctions = {
         const posts = await Post.findAll()
 
         return posts
+    },
+    queryLikesByPostId: async (postId) => {
+        const likes = await Like.findAll({
+            where: {postId: postId}
+        })
+
+        console.log('likes:', likes)
+
+        return likes
     }
 }
 

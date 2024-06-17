@@ -3,5 +3,20 @@
         "userId": 1,
         "saberId": 3,
         "body": "This is just a test post, think nothing of it. Also, I wouldn't go to the Jedi Temple right now if I were you..."
+    },
+    {
+        "userId": 1,
+        "saberId": 1,
+        "body": "Just another test post. Move along."
+    },
+    {
+        "userId": 1,
+        "saberId": 9,
+        "body": "Just testing that double-bladed sabers render correctly. As you were."
+    },
+    {
+        "userId": 2,
+        "saberId": 2,
+        "body": "This post is from testman1 and not from admin. The username should reflect this."
     }
 ]

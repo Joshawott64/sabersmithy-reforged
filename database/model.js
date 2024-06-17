@@ -344,6 +344,14 @@ Like.init(
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
+        },
+        postId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         }
     },
     {
@@ -392,6 +400,12 @@ Post.belongsTo(Saber, { foreignKey: 'saberId' })
 
 Post.hasMany(Like, { foreignKey: 'postId' })
 Like.belongsTo(Post, { foreignKey: 'postId' })
+
+User.hasMany(Post, { foreignKey: 'userId' })
+Post.belongsTo(User, { foreignKey: 'userId' })
+
+User.hasMany(Like, { foreignKey: 'userId' })
+Like.belongsTo(User, { foreignKey: 'userId' })
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
     console.log('Syncing database...')
