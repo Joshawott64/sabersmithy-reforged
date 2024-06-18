@@ -10,7 +10,7 @@ const ForumPost = ({post, setPostData}) => {
 
     const userId = useSelector((state) => state.userId)
 
-    console.log('post:', post)
+    // console.log('post:', post)
 
     const [subjectSaber, setSubjectSaber] = useState({})
     const [likeCount, setLikeCount] = useState(0)
@@ -27,7 +27,7 @@ const ForumPost = ({post, setPostData}) => {
             })
     }, [])
 
-    console.log(`${likeCount} likes for ${post.postId}`)
+    // console.log(`${likeCount} likes for ${post.postId}`)
 
     return (
         <>

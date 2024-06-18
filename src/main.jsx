@@ -10,6 +10,7 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import App from './App.jsx'
+import DraftPostPage from './pages/DraftPostPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import EditPage from './pages/EditPage.jsx'
 import ForgePage from './pages/ForgePage.jsx'
@@ -53,6 +54,11 @@ const router = createBrowserRouter(
       <Route 
         path='edit/:id'
         element={<EditPage />}
+      />
+
+      <Route 
+        path='post/:id'
+        element={<DraftPostPage />}
       />
 
       <Route 

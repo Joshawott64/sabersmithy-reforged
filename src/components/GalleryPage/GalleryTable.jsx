@@ -19,7 +19,7 @@ const GalleryTable = () => {
         if (userId) {
             axios.get(`/api/gallery/${userId}`)
                 .then((res) => {
-                    console.log('res.data:', res.data)
+                    // console.log('res.data:', res.data)
                     setSaberData(res.data)
                 })
         }
@@ -41,6 +41,7 @@ const GalleryTable = () => {
                     <th>Name</th>
                     <th>Color</th>
                     <th>Preview</th>
+                    <th></th>
                     <th></th>
                     <th></th>
                 </tr>

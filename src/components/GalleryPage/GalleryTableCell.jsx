@@ -1,6 +1,7 @@
 import GalleryImageList from './GalleryImageList.jsx'
 import GalleryEditButton from './GalleryEditButton.jsx'
 import GalleryDeleteButton from './GalleryDeleteButton.jsx'
+import GalleryPostButton from './GalleryPostButton.jsx'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -16,7 +17,7 @@ const GalleryTableCell = ({saber, saberId, setSaberData}) => {
             })
     }, [])
 
-    console.log('urls:', urls)
+    // console.log('urls:', urls)
 
     return (
         <tr>
@@ -40,6 +41,11 @@ const GalleryTableCell = ({saber, saberId, setSaberData}) => {
                 <GalleryDeleteButton 
                     saber={saber}
                     setSaberData={setSaberData}
+                />
+            </td>
+            <td>
+                <GalleryPostButton 
+                    saber={saber}
                 />
             </td>
         </tr>

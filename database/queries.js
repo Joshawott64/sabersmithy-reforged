@@ -223,8 +223,6 @@ const queryFunctions = {
             where: {postId: postId}
         })
 
-        console.log('likes:', likes)
-
         return likes
     }
 }

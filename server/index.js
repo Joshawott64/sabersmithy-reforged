@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 // endpoints
-const { getDefaultSabers, getUserSabers, getSaberById, getUserById, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck, getPostData, getLikes } = handlerFunctions
+const { getDefaultSabers, getUserSabers, getSaberById, getUserById, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck, getPostData, getLikes, createPost } = handlerFunctions
 
 app.get('/api/gallery/default-sabers', getDefaultSabers)
 app.get('/api/gallery/:id', getUserSabers)
@@ -32,6 +32,7 @@ app.get('/api/session-check', sessionCheck)
 app.get('/api/forum/posts', getPostData)
 app.get('/api/username/:id', getUserById)
 app.get('/api/likes/:id', getLikes)
+app.post('/api/create-post', createPost)
 
 
 ViteExpress.listen(app, port, () => console.log(`Execute port 66! http://localhost:${port}`))

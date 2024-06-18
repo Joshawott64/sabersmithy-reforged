@@ -254,6 +254,11 @@ const handlerFunctions = {
         const likes = await queryLikesByPostId(id)
 
         res.status(200).send(likes)
+    },
+    createPost: async (req, res) => {
+        const newPost = await Post.create(req.body)
+
+        res.status(200).send("Success")
     }
 
 }
