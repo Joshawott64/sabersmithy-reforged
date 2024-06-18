@@ -5,6 +5,9 @@ import ForumPostPreviewImage from "./ForumPostPreviewImage.jsx"
 import ForumPostDescription from "./ForumPostDescription.jsx"
 import ForumPostEditButton from "./ForumPostEditButton.jsx"
 import ForumPostDeleteButton from "./ForumPostDeleteButton.jsx"
+import ForumPostSaveButton from "./ForumPostSaveButton.jsx"
+import ForumPostDiscardButton from "./ForumPostDiscardButton.jsx"
+import ForumPostLikeButton from "./ForumPostLikeButton.jsx"
 
 const ForumPost = ({post, setPostData}) => {
 
@@ -14,6 +17,9 @@ const ForumPost = ({post, setPostData}) => {
 
     const [subjectSaber, setSubjectSaber] = useState({})
     const [likeCount, setLikeCount] = useState(0)
+    const [isEditing, setIsEditing] = useState(false)
+    const [postBody, setPostBody] = useState(post.body)
+
 
     useEffect(() => {
         axios.get(`/api/select/${post.saberId}`)
@@ -45,7 +51,7 @@ const ForumPost = ({post, setPostData}) => {
                             {subjectSaber.saberId && <ForumPostPreviewImage subjectSaber={subjectSaber} />}
                         </td>
                         <td>
-                            {post.postId && <ForumPostDescription post={post} />}
+                            {post.postId && <ForumPostDescription post={post} isEditing={isEditing} setPostBody={setPostBody} />}
                         </td>
                     </tr>
                 </tbody>
@@ -53,8 +59,11 @@ const ForumPost = ({post, setPostData}) => {
                     <tr>
                         <td>{likeCount} likes</td>
                         <td>
-                            {userId === post.userId && <ForumPostEditButton />}
-                            {userId === post.userId && <ForumPostDeleteButton />}
+                            <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount}/>
+                            {!isEditing && userId === post.userId && <ForumPostEditButton isEditing={isEditing} setIsEditing={setIsEditing} />}
+                            {!isEditing && userId === post.userId && <ForumPostDeleteButton post={post} setPostData={setPostData} />}
+                            {isEditing && userId === post.userId && <ForumPostSaveButton post={post} postBody={postBody} setIsEditing={setIsEditing} />}
+                            {isEditing && userId === post.userId && <ForumPostDiscardButton setIsEditing={setIsEditing}/>}
                         </td>
                     </tr>
                 </tfoot>

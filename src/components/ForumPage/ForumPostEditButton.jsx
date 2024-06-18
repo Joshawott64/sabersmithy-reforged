@@ -1,7 +1,16 @@
-const ForumPostEditButton = () => {
+const ForumPostEditButton = ({isEditing, setIsEditing}) => {
+
+    const handleEditMode = () => {
+        if (isEditing) {
+            setIsEditing(false)
+        } else {
+            setIsEditing(true)
+        }
+    }
+
     return (
         <>
-            <button>Edit</button>
+            <button onClick={handleEditMode}>Edit</button>
         </>
     )
 }

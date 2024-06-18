@@ -327,8 +327,7 @@ Post.init(
     {
         modelName: 'post',
         sequelize: db,
-        timestamps: true,
-        updatedAt: false
+        timestamps: true
     }
 )
 
@@ -395,10 +394,16 @@ Post.belongsTo(User, { foreignKey: 'userId' })
 User.hasMany(Like, { foreignKey: 'userId' })
 Like.belongsTo(User, { foreignKey: 'userId' })
 
-Saber.hasMany(Post, { foreignKey: 'saberId' })
+Saber.hasMany(Post, {
+     foreignKey: 'saberId',
+     onDelete: 'CASCADE' 
+    })
 Post.belongsTo(Saber, { foreignKey: 'saberId' })
 
-Post.hasMany(Like, { foreignKey: 'postId' })
+Post.hasMany(Like, {
+     foreignKey: 'postId', 
+     onDelete: 'CASCADE'
+    })
 Like.belongsTo(Post, { foreignKey: 'postId' })
 
 User.hasMany(Post, { foreignKey: 'userId' })

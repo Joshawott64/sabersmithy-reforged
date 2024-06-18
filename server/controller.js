@@ -259,6 +259,34 @@ const handlerFunctions = {
         const newPost = await Post.create(req.body)
 
         res.status(200).send("Success")
+    },
+    deletePost: async (req, res) => {
+        const {id} = req.params
+
+        await Post.destroy({
+            where: {
+                postId: id
+            }
+        })
+
+        const allPostData = await getAllPosts()
+
+        res.status(200).send(allPostData)
+    },
+    editPost: async (req, res) => {
+        const {id} = req.params
+
+        const postToEdit = await Post.findByPk(id)
+
+        console.log('postToEdit:', postToEdit)
+
+        console.log('req.body:', req.body)
+
+        postToEdit.body = req.body.body
+
+        await postToEdit.save()
+
+        res.status(200).send("Success")
     }
 
 }
