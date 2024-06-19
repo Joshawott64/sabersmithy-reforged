@@ -213,10 +213,28 @@ const queryFunctions = {
 
         return user
     },
-    getAllPosts: async () => {
+    getAllPosts: async (sort) => {
         const posts = await Post.findAll()
 
-        return posts
+        switch (sort) {
+            case 'newest':
+                const postsNewestFirst = await Post.findAll({
+                    order: [['createdAt', 'DESC']]
+                })
+                return postsNewestFirst
+            case 'oldest':
+                const postsOldestFirst = await Post.findAll({
+                    order: [['createdAt', 'ASC']]
+                })
+                return postsOldestFirst
+            case 'user':
+                const postsUserSorted = await Post.findAll({
+                    order: ['userId']
+                })
+                return postsUserSorted
+            default:
+                return posts
+        }
     },
     queryLikesByPostId: async (postId) => {
         const likes = await Like.findAll({

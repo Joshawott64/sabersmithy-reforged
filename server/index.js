@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(session({ secret: 'ssshhhhh', saveUninitialized: true, resave: false }))
 
 // endpoints
-const { getDefaultSabers, getUserSabers, getSaberById, getUserById, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck, getPostData, getLikes, createPost, deletePost, editPost } = handlerFunctions
+const { getDefaultSabers, getUserSabers, getSaberById, getUserById, getComponents, getSaberUrls, addSaber, editSaber, deleteSaber, queryColoredEmitter, login, logout, register, sessionCheck, getPostData, getLikes, createPost, deletePost, editPost, addLike, removeLike } = handlerFunctions
 
 app.get('/api/gallery/default-sabers', getDefaultSabers)
 app.get('/api/gallery/:id', getUserSabers)
@@ -29,11 +29,13 @@ app.get('/api/logout', logout)
 app.post('/api/register', register)
 app.get('/api/select/:id', getSaberById)
 app.get('/api/session-check', sessionCheck)
-app.get('/api/forum/posts', getPostData)
+app.get('/api/forum/posts/:sort', getPostData)
 app.get('/api/username/:id', getUserById)
 app.get('/api/likes/:id', getLikes)
 app.post('/api/create-post', createPost)
 app.delete('/api/post/delete/:id', deletePost)
 app.put('/api/post/edit/:id', editPost)
+app.post('/api/like', addLike)
+app.delete('/api/unlike/:id', removeLike)
 
 ViteExpress.listen(app, port, () => console.log(`Execute port 66! http://localhost:${port}`))

@@ -385,13 +385,22 @@ Saber.belongsTo(Pommel, { foreignKey: 'pommelId' })
 Soundfont.hasMany(Saber, { foreignKey: 'soundfontId' })
 Saber.belongsTo(Soundfont, { foreignKey: 'soundfontId' })
 
-User.hasMany(Saber, { foreignKey: 'userId' })
+User.hasMany(Saber, { 
+    foreignKey: 'userId',
+    onDelete: 'CASCADE' 
+})
 Saber.belongsTo(User, { foreignKey: 'userId' })
 
-User.hasMany(Post, { foreignKey: 'userId' })
+User.hasMany(Post, { 
+    foreignKey: 'userId',
+    onDelete: 'CASCADE' 
+})
 Post.belongsTo(User, { foreignKey: 'userId' })
 
-User.hasMany(Like, { foreignKey: 'userId' })
+User.hasMany(Like, { 
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+ })
 Like.belongsTo(User, { foreignKey: 'userId' })
 
 Saber.hasMany(Post, {
@@ -406,10 +415,16 @@ Post.hasMany(Like, {
     })
 Like.belongsTo(Post, { foreignKey: 'postId' })
 
-User.hasMany(Post, { foreignKey: 'userId' })
+User.hasMany(Post, { 
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+})
 Post.belongsTo(User, { foreignKey: 'userId' })
 
-User.hasMany(Like, { foreignKey: 'userId' })
+User.hasMany(Like, { 
+    foreignKey: 'userId',
+    onDelete: 'CASCADE'
+})
 Like.belongsTo(User, { foreignKey: 'userId' })
 
 if (process.argv[1] === url.fileURLToPath(import.meta.url)) {

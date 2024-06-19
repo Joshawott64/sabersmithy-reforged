@@ -9,16 +9,19 @@ import ForumPostSaveButton from "./ForumPostSaveButton.jsx"
 import ForumPostDiscardButton from "./ForumPostDiscardButton.jsx"
 import ForumPostLikeButton from "./ForumPostLikeButton.jsx"
 
-const ForumPost = ({post, setPostData}) => {
+const ForumPost = ({post, setPostData, colorFilter, bladeStyleFilter, soundfontFilter, bladeNumberFilter}) => {
 
     const userId = useSelector((state) => state.userId)
 
     // console.log('post:', post)
 
     const [subjectSaber, setSubjectSaber] = useState({})
+    const [likeData, setLikeData] = useState([])
     const [likeCount, setLikeCount] = useState(0)
     const [isEditing, setIsEditing] = useState(false)
     const [postBody, setPostBody] = useState(post.body)
+
+    let matchesFilters = true
 
 
     useEffect(() => {
@@ -29,15 +32,32 @@ const ForumPost = ({post, setPostData}) => {
 
         axios.get(`/api/likes/${post.postId}`)
             .then((res) => {
+                setLikeData(res.data)
                 setLikeCount(res.data.length)
             })
     }, [])
+
+    if (colorFilter !== undefined && subjectSaber.colorId !== colorFilter) {
+        matchesFilters = false
+    }
+
+    if (bladeStyleFilter !== undefined && subjectSaber.bladeStyle !== bladeStyleFilter) {
+        matchesFilters = false
+    }
+
+    if (soundfontFilter !== undefined && subjectSaber.soundfontId !== soundfontFilter) {
+        matchesFilters = false
+    }
+
+    if (bladeNumberFilter !== undefined && subjectSaber.isDoubleBladed !== bladeNumberFilter) {
+        matchesFilters = false
+    }
 
     // console.log(`${likeCount} likes for ${post.postId}`)
 
     return (
         <>
-            <table>
+            {matchesFilters && <table>
                 <thead>
                     <tr>
                         <th></th>
@@ -59,7 +79,7 @@ const ForumPost = ({post, setPostData}) => {
                     <tr>
                         <td>{likeCount} likes</td>
                         <td>
-                            <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount}/>
+                            <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount} likeData={likeData} setLikeData={setLikeData} />
                             {!isEditing && userId === post.userId && <ForumPostEditButton isEditing={isEditing} setIsEditing={setIsEditing} />}
                             {!isEditing && userId === post.userId && <ForumPostDeleteButton post={post} setPostData={setPostData} />}
                             {isEditing && userId === post.userId && <ForumPostSaveButton post={post} postBody={postBody} setIsEditing={setIsEditing} />}
@@ -67,7 +87,7 @@ const ForumPost = ({post, setPostData}) => {
                         </td>
                     </tr>
                 </tfoot>
-            </table>
+            </table>}
         </>
     )
 }

@@ -244,7 +244,8 @@ const handlerFunctions = {
         }
     },
     getPostData: async (req, res) => {
-        const allPostData = await getAllPosts()
+        const {sort} = req.params
+        const allPostData = await getAllPosts(sort)
 
         res.status(200).send(allPostData)
     },
@@ -287,6 +288,26 @@ const handlerFunctions = {
         await postToEdit.save()
 
         res.status(200).send("Success")
+    },
+    addLike: async (req, res) => {
+        const newLike = await Like.create(req.body)
+
+        const likeData = await Like.findAll()
+
+        res.status(200).send(likeData)
+    },
+    removeLike: async (req, res) => {
+        const {id} = req.params
+
+        await Like.destroy({
+            where: {
+                userId: id
+            }
+        })
+
+        const likeData = await Like.findAll()
+
+        res.status(200).send(likeData)
     }
 
 }

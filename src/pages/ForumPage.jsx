@@ -6,9 +6,14 @@ import ForumSideBar from "../components/ForumPage/ForumSideBar.jsx"
 function ForumPage() {
 
     const [postData, setPostData] = useState([])
+    const [sortMode, setSortMode] = useState('newest')
+    const [colorFilter, setColorFilter] = useState()
+    const [bladeStyleFilter, setBladeStyleFilter] = useState()
+    const [soundfontFilter, setSoundfontFilter] = useState()
+    const [bladeNumberFilter, setBladeNumberFilter] = useState()
 
     useEffect(() => {
-        axios.get('/api/forum/posts')
+        axios.get(`/api/forum/posts/${sortMode}`)
             .then((res) => {
                 setPostData(res.data)
             })
@@ -18,13 +23,24 @@ function ForumPage() {
         post={el}
         key={el.postId}
         setPostData={setPostData}
+        colorFilter={colorFilter}
+        bladeStyleFilter={bladeStyleFilter}
+        soundfontFilter={soundfontFilter}
+        bladeNumberFilter={bladeNumberFilter}
     />)
 
     return (
         <>
             <h1>Forum Page</h1>
             { posts }
-            <ForumSideBar />
+            <ForumSideBar 
+                setPostData={setPostData} 
+                setSortMode={setSortMode} 
+                setColorFilter={setColorFilter} 
+                setBladeStyleFilter={setBladeStyleFilter} 
+                setSoundfontFilter={setSoundfontFilter} 
+                setBladeNumberFilter={setBladeNumberFilter}
+            />
         </>
     )
 }

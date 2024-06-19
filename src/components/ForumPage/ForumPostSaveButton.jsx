@@ -2,8 +2,8 @@ import axios from "axios"
 
 const ForumPostSaveButton = ({post, postBody, setIsEditing}) => {
 
-    console.log('post:', post)
-    console.log('postBody:', postBody)
+    // console.log('post:', post)
+    // console.log('postBody:', postBody)
 
     const handleSave = async () => {
         post.body = postBody
