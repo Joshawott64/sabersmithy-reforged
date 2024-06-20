@@ -19,7 +19,7 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
         return (
             <>
             <div id="saber-preview">
-                <ul>
+                <ul id="saber-image">
                     <li>
                         <img src={urls.emitter} alt="Emitter" />
                     </li>
@@ -41,7 +41,7 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
         return (
             <>
             <div id="saber-preview">
-                <ul>
+                <ul id="saber-image">
                     <li id="saber-list">
                         <img src={urls.emitter} alt="Emitter" />
                     </li>
@@ -52,13 +52,13 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
                         <img src={urls.switch} alt="Switch" />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.switch2} alt="Switch2" />
+                        <img src={urls.switch2} alt="Switch2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.guard2} alt="Guard2" />
+                        <img src={urls.guard2} alt="Guard2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.emitter2} alt="Emitter2" />
+                        <img src={urls.emitter2} alt="Emitter2" style={{transform: "rotate(180deg)"}} />
                     </li>
                 </ul>
                 <img src={urls.color} alt="Color" />

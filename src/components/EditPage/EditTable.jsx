@@ -82,7 +82,6 @@ const EditTable = ({state}) => {
             setIsBladeOn(false)
         } else {
             new Audio(clientSoundfont.ignite).play()
-            new Audio(clientSoundfont.hum).play()
             setIsBladeOn(true)
         }
 
@@ -213,6 +212,9 @@ const EditTable = ({state}) => {
                             navigate('/gallery')
                         }}>Save Changes</button>}
                         {isBladeOn && <button disabled>Save Changes</button>}
+                        {isBladeOn && <audio loop autoPlay hidden>
+                            <source src={clientSoundfont.hum} />
+                        </audio>}
                         {isBladeOn === false && <button onClick={() => {
                             // handleBladeToggle()
                             navigate('/gallery')

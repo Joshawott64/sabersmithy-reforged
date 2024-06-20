@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+#saber-image {
+  line-height: 0px;
+  list-style-type: none;
+}

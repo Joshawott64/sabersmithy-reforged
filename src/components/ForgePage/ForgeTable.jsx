@@ -98,7 +98,6 @@ const ForgeTable = () => {
             setIsBladeOn(false)
         } else {
             new Audio(clientSoundfont.ignite).play()
-            new Audio(clientSoundfont.hum).play()
             setIsBladeOn(true)
         }
 
@@ -201,6 +200,9 @@ const ForgeTable = () => {
                             navigate('/home')
                         }}>Save</button>}
                         {isBladeOn && <button disabled>Save</button>}
+                        {isBladeOn && <audio loop autoPlay hidden>
+                            <source src={clientSoundfont.hum} />
+                        </audio>}
                         {isBladeOn === false && <button onClick={() => {
                             // handleBladeToggle()
                             navigate('/home')

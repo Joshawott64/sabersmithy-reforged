@@ -31,7 +31,7 @@ const SaberSelectOptions = ({saber, saberId, minigameName}) => {
         <>
             <button id="saber-select" onClick={handleSaberSelect}>
                 <label htmlFor="saber-select">{saber.name}</label>
-                {!saber.isDoubleBladed && <ul>
+                {!saber.isDoubleBladed && <ul id="saber-image">
                     <li>
                         <img src={urls.emitter} alt="Emitter" />
                     </li>
@@ -45,7 +45,7 @@ const SaberSelectOptions = ({saber, saberId, minigameName}) => {
                         <img src={urls.pommel} alt="Pommel" />
                     </li>
                 </ul>}
-                {saber.isDoubleBladed && <ul>
+                {saber.isDoubleBladed && <ul id="saber-image">
                     <li>
                         <img src={urls.emitter} alt="Emitter" />
                     </li>
@@ -56,13 +56,13 @@ const SaberSelectOptions = ({saber, saberId, minigameName}) => {
                         <img src={urls.switch} alt="Switch"/>
                     </li>
                     <li>
-                        <img src={urls.switch2} alt="Switch2" />
+                        <img src={urls.switch2} alt="Switch2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li>
-                        <img src={urls.guard2} alt="Guard2" />
+                        <img src={urls.guard2} alt="Guard2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li>
-                        <img src={urls.emitter2} alt="Emitter2" />
+                        <img src={urls.emitter2} alt="Emitter2" style={{transform: "rotate(180deg)"}} />
                     </li>
                 </ul>}
                 <img src={urls.color} alt="Color" htmlFor="saber-select" />

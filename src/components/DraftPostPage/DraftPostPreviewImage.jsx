@@ -49,13 +49,13 @@ const DraftPostPreviewImage = ({saber}) => {
                         <img src={urls.switch} alt="Switch" />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.switch2} alt="Switch2" />
+                        <img src={urls.switch2} alt="Switch2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.guard2} alt="Guard2" />
+                        <img src={urls.guard2} alt="Guard2" style={{transform: "rotate(180deg)"}} />
                     </li>
                     <li id="saber-list">
-                        <img src={urls.emitter2} alt="Emitter2" />
+                        <img src={urls.emitter2} alt="Emitter2" style={{transform: "rotate(180deg)"}} />
                     </li>
                 </ul>
                 <img src={urls.color} alt="Color" />
