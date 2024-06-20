@@ -21,6 +21,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import MinigameSelectPage from './pages/MinigameSelectPage.jsx'
 import NewUserPage from './pages/RegisterPage.jsx'
 import SaberSelectPage from './pages/SaberSelectPage.jsx'
+import SandboxPage from './pages/SandboxPage.jsx'
 import './index.css'
 
 const router = createBrowserRouter(
@@ -74,6 +75,11 @@ const router = createBrowserRouter(
       <Route 
         path='select'
         element={<SaberSelectPage />}
+      />
+
+      <Route 
+        path='sandbox'
+        element={<SandboxPage />}
       />
     </Route>
   )

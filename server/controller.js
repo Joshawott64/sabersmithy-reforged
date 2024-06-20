@@ -36,6 +36,7 @@ const {
     getSaberColoredEmitter2Image, 
     getSaberGuard2Image, 
     getSaberSwitch2Image,
+    getSaberSounds,
     determineColoredEmitter,
     getUser,
     getAllPosts,
@@ -87,7 +88,8 @@ const handlerFunctions = {
             emitter2: await getSaberEmitter2Image(saber),
             coloredEmitter2: await getSaberColoredEmitter2Image(saber),
             guard2: await getSaberGuard2Image(saber),
-            switch2: await getSaberSwitch2Image(saber)
+            switch2: await getSaberSwitch2Image(saber),
+            sounds: await getSaberSounds(saber)
         }
 
         res.status(200).send(urls)
@@ -150,13 +152,6 @@ const handlerFunctions = {
         // console.log('allSaberData:', allSaberData)
 
         res.status(200).send(allSaberData)
-    },
-    selectSaber: async (req, res) => {
-        const {id} = req.params
-
-        const selectedSaber = await Saber.findByPk(id)
-
-        res.status(200).send(selectedSaber)
     },
     queryColoredEmitter: async (req, res) => {
         const {name, color, style} = req.body

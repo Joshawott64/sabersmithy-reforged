@@ -196,6 +196,14 @@ const queryFunctions = {
 
         return switch2Image.image
     },
+    getSaberSounds: async (saber) => {
+        const sounds = await Soundfont.findOne({
+            attributes: [ 'clash1', 'clash2', 'clash3', 'deactivate', 'deflect', 'hum', 'ignite', 'swoosh1', 'swoosh2', 'swoosh3' ],
+            where: { soundfontId: saber.soundfontId }
+        })
+
+        return sounds
+    },
     determineColoredEmitter: async (name, color, style) => {
         const coloredEmitter = await ColoredEmitter.findOne({
             where: { coloredEmitterCode: `${name}${color}${style}` }

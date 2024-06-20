@@ -57,9 +57,6 @@ function App() {
           <img src={sabersmithyTitle} alt="Sabersmithy" />
           <img src={reforged} alt="Reforged" />
         </div>
-        <div>
-          <button onClick={() => navigate('/select')}>/select</button>
-        </div>
       </nav>
 
       <hr />
