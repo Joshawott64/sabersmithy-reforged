@@ -49,17 +49,14 @@ function App() {
 
   return (
     <>
-      <nav>
-        <div>
-          <p>Navbar goes here</p>
-          <button onClick={handleLogout}>Logout</button>
-          <button onClick={() => navigate('/home')}>Home Page</button>
-          <img src={sabersmithyTitle} alt="Sabersmithy" />
-          <img src={reforged} alt="Reforged" />
-        </div>
+      <nav id="navbar">
+        <button onClick={handleLogout}>Logout</button>
+        <button onClick={() => navigate('/home')}>Home Page</button>
+        <img src={sabersmithyTitle} alt="Sabersmithy" id="sabersmithy" />
+        <img src={reforged} alt="Reforged" id="reforged" />
       </nav>
 
-      <hr />
+      {/* <hr /> */}
 
       <main>
         <Outlet />

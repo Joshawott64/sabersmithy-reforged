@@ -17,6 +17,29 @@ const SandboxSaberImage = ({saber, urls, isBladeOn}) => {
     //     }
     // }, [])
 
+    // const saberImage = document.getElementById("saber-image")
+
+    // console.log('saberImage:', saberImage)
+    
+    // let mousedown = false
+
+    // const moveSaberImage = (e) => {
+    //     if (mousedown) {
+    //         saberImage.style.left = e.clientX + 'px'
+    //         saberImage.style.top = e.clientY + 'px'
+    //     }
+    //     requestAnimationFrame(moveSaberImage)
+    // }
+
+    // saberImage.addEventListener('mousedown', function() {
+    //     mousedown = true
+    //     requestAnimationFrame(moveSaberImage)
+    // })
+
+    // window.addEventListener('mouseup', function() {
+    //     mousedown = false
+    // })
+
     return (
         <>
             <ul id="saber-image">

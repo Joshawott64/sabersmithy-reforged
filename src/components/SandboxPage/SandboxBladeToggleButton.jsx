@@ -1,17 +1,21 @@
 const SandboxBladeToggleButton = ({isBladeOn, setIsBladeOn, urls}) => {
 
-    const handleBladeToggle = () => {
-        if (isBladeOn) {
-            new Audio(urls.sounds.deactivate).play()
-            setIsBladeOn(false)
-        } else {
-            new Audio(urls.sounds.ignite).play()
-            setIsBladeOn(true)
-        }
-    }
+    // const handleBladeToggle = () => {
+    //     if (isBladeOn) {
+    //         const deactivate = new Audio(urls.sounds.deactivate)
+    //         console.log('deactivate:', deactivate)
+    //         deactivate.play()
+    //         setIsBladeOn(false)
+    //     } else {
+    //         const ignite = new Audio(urls.sounds.ignite)
+    //         console.log('ignite:', ignite)
+    //         ignite.play()
+    //         setIsBladeOn(true)
+    //     }
+    // }
 
     return (
-        <button onClick={handleBladeToggle}>Toggle Blade</button>
+        <button >Toggle Blade</button>
     )
 }
 

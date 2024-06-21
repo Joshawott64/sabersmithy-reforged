@@ -71,6 +71,13 @@ const handlerFunctions = {
     getUserById: async (req, res) => {
         const {id} = req.params
 
+        console.log('id:', id)
+
+        if (id === null) {
+            console.log('HIT THE IF STATEMENT')
+            res.status(200).send('')
+        }
+
         const username = await queryUsernameById(id)
 
         res.status(200).send(username)

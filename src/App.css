@@ -45,3 +45,30 @@
   line-height: 0px;
   list-style-type: none;
 }
+
+.mover {  
+  overflow: hidden;  
+  display: block;  
+  width: 100%;  
+  height: 750px;  
+  position: relative;  
+  background-color: rgb(44, 52, 71);
+} 
+
+.move { 
+  position: absolute; 
+  width: max-content;
+  height: max-content; 
+  left: 0; 
+  top: 0; 
+  /* background-color: #333;  */
+} 
+
+#navbar {
+  background-color: black;
+}
+
+#sabersmithy {
+  width: 100%;
+  height: 100%;
+}
