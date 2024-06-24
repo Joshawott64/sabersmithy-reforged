@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useState, useEffect } from "react"
+import forum from "../assets/GUIComponents/Forum.png"
 import ForumPost from "../components/ForumPage/ForumPost.jsx"
 import ForumSideBar from "../components/ForumPage/ForumSideBar.jsx"
 
@@ -31,7 +32,7 @@ function ForumPage() {
 
     return (
         <>
-            <h1>Forum Page</h1>
+            <img src={forum} alt="Forum" />
             { posts }
             <ForumSideBar 
                 setPostData={setPostData} 

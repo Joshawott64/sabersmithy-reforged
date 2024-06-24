@@ -22,11 +22,11 @@ function HomePage() {
         
     const greetings = [
         `Hello there, ${username}.`,
-        `We've been expecting you, ${username}`,
+        `We've been expecting you, ${username}.`,
         `It's over, ${username}. I have the high ground!`,
         `Somehow, ${username} returned.`,
-        `Be careful not to choke on your aspiriations, ${username}`,
-        `Welcome back, ${username}`
+        `Be careful not to choke on your aspiriations, ${username}.`,
+        `Welcome back, ${username}.`
 
     ]
     const greetingId = Math.floor(Math.random() * greetings.length)
@@ -36,20 +36,14 @@ function HomePage() {
     return (
         <>
             <h2>{greetings[greetingId]}</h2>
-            <ul>
-                <li>
-                    <button onClick={() => navigate('/forge')}>Forge</button>
-                </li>
-                <li>
-                    <button onClick={() => navigate('/gallery')}>Gallery</button>
-                </li>
-                <li>
-                    <button onClick={() => navigate('/minigames')}>Minigames</button>
-                </li>
-                <li>
-                    <button onClick={() => navigate('/forum')}>Forum</button>  
-                </li>
-            </ul>
+            <br />
+            <button onClick={() => navigate('/forge')}>Forge</button>
+            <br />
+            <button onClick={() => navigate('/gallery')}>Gallery</button>
+            <br />
+            <button onClick={() => navigate('/minigames')}>Minigames</button>
+            <br />
+            <button onClick={() => navigate('/forum')}>Forum</button>  
         </>
     )
 }

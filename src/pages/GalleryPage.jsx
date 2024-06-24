@@ -1,9 +1,10 @@
+import gallery from "../assets/GUIComponents/Gallery.png"
 import GalleryTable from '../components/GalleryPage/GalleryTable.jsx'
 
 function GalleryPage() {
     return (
         <>
-            <h1>Gallery Page</h1>
+            <img src={gallery} alt="Gallery" />
             <GalleryTable />
         </>
     )

@@ -111,7 +111,7 @@ const pommelsInDB = (pommelData.map(async (pommel) => {
 // add soundfontData to database
 const soundfontsInDB = (soundfontData.map(async (soundfont) => {
     const { soundfontCode, clash1, clash2, clash3, deactivate, deflect, hum, 
-        ignite, swoosh1, swoosh2, swoosh3 } = soundfont
+        ignite, swoosh1, swoosh2, swoosh3, image } = soundfont
         
     const newSoundfont = await Soundfont.create({
         soundfontCode,
@@ -124,7 +124,8 @@ const soundfontsInDB = (soundfontData.map(async (soundfont) => {
         ignite,
         swoosh1,
         swoosh2,
-        swoosh3
+        swoosh3,
+        image
     })
 
     return newSoundfont

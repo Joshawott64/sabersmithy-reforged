@@ -40,6 +40,14 @@
         "image": "../src/assets/ColoredEmitters/AhsokaEmitter/AhsokaPurpleUnstable.png"
     },
     {
+        "coloredEmitterCode": "AhsokaRainbowStable",
+        "image": "../src/assets/ColoredEmitters/AhsokaEmitter/AhsokaRainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "AhsokaRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/AhsokaEmitter/AhsokaRainbowUnstable.png"
+    },
+    {
         "coloredEmitterCode": "AhsokaRedStable",
         "image": "../src/assets/ColoredEmitters/AhsokaEmitter/AhsokaRedStable.png"
     },
@@ -102,6 +110,14 @@
     {
         "coloredEmitterCode": "AnakinPurpleUnstable",
         "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinPurpleUnstable.png"
+    },
+    {
+        "coloredEmitterCode": "AnakinRainbowStable",
+        "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinRainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "AnakinRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/AnakinEmitter/AnakinRainbowUnstable.png"
     },
     {
         "coloredEmitterCode": "AnakinRedStable",
@@ -168,6 +184,14 @@
         "image": "../src/assets/ColoredEmitters/CalEmitter/CalPurpleUnstable.png"
     },
     {
+        "coloredEmitterCode": "CalRainbowStable",
+        "image": "../src/assets/ColoredEmitters/CalEmitter/CalRainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "CalRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/CalEmitter/CalRainbowUnstable.png"
+    },
+    {
         "coloredEmitterCode": "CalRedStable",
         "image": "../src/assets/ColoredEmitters/CalEmitter/CalRedStable.png"
     },
@@ -230,6 +254,14 @@
     {
         "coloredEmitterCode": "DarkPurpleUnstable",
         "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkPurple.png"
+    },
+    {
+        "coloredEmitterCode": "DarkRainbowStable",
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRainbow.png"
+    },
+    {
+        "coloredEmitterCode": "DarkRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/DarkEmitter/DarkRainbow.png"
     },
     {
         "coloredEmitterCode": "DarkRedStable",
@@ -296,6 +328,14 @@
         "image": "../src/assets/ColoredEmitters/LukeEmitter/LukePurpleUnstable.png"
     },
     {
+        "coloredEmitterCode": "LukeRainbowStable",
+        "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeRainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "LukeRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeRainbowUnstable.png"
+    },
+    {
         "coloredEmitterCode": "LukeRedStable",
         "image": "../src/assets/ColoredEmitters/LukeEmitter/LukeRedStable.png"
     },
@@ -358,6 +398,14 @@
     {
         "coloredEmitterCode": "Orig1PurpleUnstable",
         "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1PurpleUnstable.png"
+    },
+    {
+        "coloredEmitterCode": "Orig1RainbowStable",
+        "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1RainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "Orig1RainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/Orig1Emitter/Orig1RainbowUnstable.png"
     },
     {
         "coloredEmitterCode": "Orig1RedStable",
@@ -424,6 +472,14 @@
         "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2PurpleUnstable.png"
     },
     {
+        "coloredEmitterCode": "Orig2RainbowStable",
+        "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2RainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "Orig2RainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2RainbowUnstable.png"
+    },
+    {
         "coloredEmitterCode": "Orig2RedStable",
         "image": "../src/assets/ColoredEmitters/Orig2Emitter/Orig2RedStable.png"
     },
@@ -486,6 +542,14 @@
     {
         "coloredEmitterCode": "VaderPurpleUnstable",
         "image": "../src/assets/ColoredEmitters/VaderEmitter/VaderPurpleUnstable.png"
+    },
+    {
+        "coloredEmitterCode": "VaderRainbowStable",
+        "image": "../src/assets/ColoredEmitters/VaderEmitter/VaderRainbowStable.png"
+    },
+    {
+        "coloredEmitterCode": "VaderRainbowUnstable",
+        "image": "../src/assets/ColoredEmitters/VaderEmitter/VaderRainbowUnstable.png"
     },
     {
         "coloredEmitterCode": "VaderRedStable",

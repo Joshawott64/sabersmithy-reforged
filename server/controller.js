@@ -74,7 +74,6 @@ const handlerFunctions = {
         console.log('id:', id)
 
         if (id === null) {
-            console.log('HIT THE IF STATEMENT')
             res.status(200).send('')
         }
 

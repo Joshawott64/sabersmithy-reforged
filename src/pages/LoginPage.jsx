@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
 
@@ -38,14 +38,20 @@ function LoginPage() {
 
     return (
         <>
-            <form onSubmit={handleLogin}>
-                <label htmlFor="username">Username:</label>
+        <div className="flex flex-col justify-center">
+            <h2 className="mt-10 text-center text-2xl font-bold">Log in to your account</h2>
+            <form className="flex flex-col flex-wrap space-y-6 place-self-center border-4 w-1/6 h-full m-1 p-1" onSubmit={handleLogin}>
+                <label className="block text-lg font-medium text-left" htmlFor="username">Username:</label>
                 <input value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
-                <label htmlFor="password">Password:</label>
+                <label className="block text-lg font-medium text-left" htmlFor="password">Password:</label>
                 <input value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
-                <button type="submit">Log In</button>
+                <button className="w-full bg-green-400 hover:bg-green-300 hover:text-gray-600" type="submit">Log In</button>
             </form>
-            <button onClick={() => navigate('/register')}>New to Sabersmithy? Register here.</button>
+        </div>
+            <p
+            >New to Sabersmithy?
+            <Link to="/register">Register here</Link>
+            </p>
         </>
     )
 }

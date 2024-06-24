@@ -46,22 +46,28 @@ const EditComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, cl
 
     return (
         <ul>
+            <label htmlFor="emitters">Emitters:</label>
             <li key="emitters">
                 { emitterList }
             </li>
+            <label htmlFor="guards">Guards:</label>
             <li key="guards">
                 { guardList }
             </li>
+            <label htmlFor="switches">Switches:</label>
             <li key="switches">
                 { switchList }
             </li>
+            {editMode === 'Single' && <label htmlFor="pommels">Pommels:</label>}
             {editMode === 'Single' && <li key="pommels">
                 { pommelList }
             </li>}
+            {editMode === 'Double' && <label htmlFor="colors">Colors:</label>}
             {editMode === 'Double' && <li key="colors">
                 { colorList }
             </li>}
-            {editMode === 'Double' && <li>
+            {editMode === 'Double' && <label htmlFor="blade-styles">Blade Styles:</label>}
+            {editMode === 'Double' && <li key="blade-styles">
                 <button onClick={() => {
                         setClientBladeStyle('Stable')
                         updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')

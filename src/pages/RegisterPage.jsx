@@ -46,12 +46,12 @@ function NewUserPage() {
         <>
             <form onSubmit={handleRegister}>
                 <label htmlFor="username">Username:</label>
-                <input value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
+                <input required value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
                 <label htmlFor="password">Password:</label>
-                <input value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
+                <input required value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
                 <label htmlFor="confirmPassword">Confirm Password:</label>
-                <input value={confirmPassword} type="password" placeholder="******" onChange={(e) => setConfirmPassword(e.target.value)}/>
-                <button type="submit">Register</button>
+                <input required value={confirmPassword} type="password" placeholder="******" onChange={(e) => setConfirmPassword(e.target.value)}/>
+                {password === confirmPassword && <button type="submit">Register</button>}
             </form>
             {password !== confirmPassword && <p>Password confirmation does not match</p>}
             <button onClick={() => navigate('/login')}>Already registered? Log in here.</button>

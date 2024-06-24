@@ -51,22 +51,27 @@ const EditComponentsRight = ({handleEditMode, colors, clientColor, setClientColo
 
     return (
         <ul>
+            {editMode === 'Single' && <label htmlFor="colors">Colors:</label>}
             {editMode === 'Single' && <li key="colors">
                 { colorList }
             </li>}
+            {editMode === 'Double' && <label htmlFor="emitters">Emitters:</label>}
             {editMode === 'Double' && <li key="emitters">
                 { emitterList }
             </li>}
+            {editMode === 'Double' && <label htmlFor="guards">Guards:</label>}
             {editMode === 'Double' && <li key="guards">
                 { guardList }
             </li>}
+            {editMode === 'Double' && <label htmlFor="switches">Switches:</label>}
             {editMode === 'Double' && <li key="switches">
                 { switchList }
             </li>}
             <li>
                 { soundfontList }
             </li>
-            {editMode === 'Single' && <li>
+            {editMode === 'Single' && <label htmlFor="blade-style">Blade Styles:</label>}
+            {editMode === 'Single' && <li key="blade-style">
                 <button onClick={() => {
                     setClientBladeStyle('Stable')
                     updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')
@@ -79,7 +84,8 @@ const EditComponentsRight = ({handleEditMode, colors, clientColor, setClientColo
                     updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Unstable')
                 }}>Unstable</button>
             </li>}
-            <li>
+            <label htmlFor="num-blades">Number of Blades:</label>
+            <li key="num-blades">
                 <input type="radio" id="single" name="num_blades" onChange={() => handleEditMode('Single')}/>
                 <label htmlFor="single">Single</label>
                 <input type="radio" id="double" name="num_blades" onChange={() => handleEditMode('Double')}/>

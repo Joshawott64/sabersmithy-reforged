@@ -118,10 +118,10 @@ const ForgeTable = () => {
     }
 
     return (
-        <table>
+        <table id="forge-table">
             <tbody>
                 <tr>
-                    <td>
+                    <td id="left-col">
                         <ForgeComponentsLeft 
                             colors={colors}
                             setClientColor={setClientColor}
@@ -163,7 +163,7 @@ const ForgeTable = () => {
                             isBladeOn={isBladeOn}
                         />
                     </td>
-                    <td>
+                    <td id="right-col">
                         <ForgeComponentsRight 
                             handleForgeMode={handleForgeMode}
                             colors={colors}
@@ -192,7 +192,7 @@ const ForgeTable = () => {
             </tbody>
             <tfoot>
                 <tr>
-                    <td>
+                    <td id="center-col">
                         <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
                         {isBladeOn === false && <button onClick={() => {
                              // handleBladeToggle()

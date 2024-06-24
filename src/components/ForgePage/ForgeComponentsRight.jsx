@@ -47,26 +47,33 @@ const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientCo
         onChange={() => setClientSoundfont(el)}
         />
         <label htmlFor="soundfonts">{el.soundfontCode}</label>
+        <img src={el.image} alt={el.soundfontCode}></img>
     </React.Fragment>)
 
     return (
         <ul>
-            {forgeMode === 'Single' && <li key="colors">
+            {forgeMode === 'Single' && <label htmlFor="colors">Colors:</label>}
+            {forgeMode === 'Single' && <li key="colors" name="colors">
                 { colorList }
             </li>}
+            {forgeMode === 'Double' && <label htmlFor="emitters">Emitters:</label>}
             {forgeMode === 'Double' && <li key="emitters">
                 { emitterList }
             </li>}
+            {forgeMode === 'Double' && <label htmlFor="guards">Guards:</label>}
             {forgeMode === 'Double' && <li key="guards">
                 { guardList }
             </li>}
+            {forgeMode === 'Double' && <label htmlFor="switches">Switches:</label>}
             {forgeMode === 'Double' && <li key="switches">
                 { switchList }
             </li>}
-            <li>
+            <label htmlFor="soundfonts">Soundfonts:</label>
+            <li key="soundfonts"> 
                 { soundfontList }
             </li>
-            {forgeMode === 'Single' && <li>
+            {forgeMode === 'Single' && <label htmlFor="blade-style">Blade Styles:</label>}
+            {forgeMode === 'Single' && <li key="blade-style">
                 <button onClick={() => {
                     setClientBladeStyle('Stable')
                     updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')
@@ -79,7 +86,8 @@ const ForgeComponentsRight = ({handleForgeMode, colors, clientColor, setClientCo
                     updateColoredEmitter2(clientEmitter2.emitterCode, clientColor.colorCode, 'Unstable')
                 }}>Unstable</button>
             </li>}
-            <li>
+            <label htmlFor="num-blades">Number of Blades:</label>
+            <li key="num-blades">
                 <input type="radio" id="single" name="num_blades" onChange={() => handleForgeMode('Single')}/>
                 <label htmlFor="single">Single</label>
                 <input type="radio" id="double" name="num_blades" onChange={() => handleForgeMode('Double')}/>

@@ -46,22 +46,28 @@ const ForgeComponentsLeft = ({colors, setClientColor, emitters, clientEmitter, c
 
     return (
         <ul>
+            <label htmlFor="emitters">Emitters:</label>
             <li key="emitters">
                 { emitterList }
             </li>
+            <label htmlFor="guards">Guards:</label>
             <li key="guards">
                 { guardList }
             </li>
+            <label htmlFor="switches">Switches:</label>
             <li key="switches">
                 { switchList }
             </li>
+            {forgeMode === 'Single' && <label htmlFor="pommels">Pommels:</label>}
             {forgeMode === 'Single' && <li key="pommels">
                 { pommelList }
             </li>}
+            {forgeMode === 'Double' && <label htmlFor="colors">Colors:</label>}
             {forgeMode === 'Double' && <li key="colors">
                 { colorList }
             </li>}
-            {forgeMode === 'Double' && <li>
+            {forgeMode === 'Double' && <label htmlFor="blade-styles">Blade Styles:</label>}
+            {forgeMode === 'Double' && <li key="blade-styles">
                 <button onClick={() => {
                         setClientBladeStyle('Stable')
                         updateColoredEmitter(clientEmitter.emitterCode, clientColor.colorCode, 'Stable')

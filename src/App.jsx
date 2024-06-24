@@ -39,6 +39,7 @@ function App() {
       })
       navigate('/home')
     } else {
+      console.log('sessionCheck: FAILURE')
       navigate('/login')
     }
   }
@@ -49,14 +50,12 @@ function App() {
 
   return (
     <>
-      <nav id="navbar">
-        <button onClick={handleLogout}>Logout</button>
-        <button onClick={() => navigate('/home')}>Home Page</button>
-        <img src={sabersmithyTitle} alt="Sabersmithy" id="sabersmithy" />
-        <img src={reforged} alt="Reforged" id="reforged" />
+      <nav id="navbar" className="flex-col w-vw bg-black">
+        {userId && <button className="float-left p-1 text-red-600 font-bold rounded hover:bg-gray-900 hover:text-white" onClick={handleLogout}>Logout</button>}
+        {userId && <button className="float-left p-1 text-blue-600 font-bold rounded hover:bg-gray-900 hover:text-white" onClick={() => navigate('/home')}>Home Page</button>}
+        <img className="mx-auto" src={sabersmithyTitle} alt="Sabersmithy" id="sabersmithy" />
+        <img className="w-1/4 mx-auto" src={reforged} alt="Reforged" id="reforged" />
       </nav>
-
-      {/* <hr /> */}
 
       <main>
         <Outlet />

@@ -10,7 +10,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Black/IgniteBlack.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Black/Swoosh1Black.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Black/Swoosh2Black.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Black/Swoosh3Black.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Black/Swoosh3Black.mp3",
+        "image": "../src/assets/Crystals/BlackCrystal.png"
     },
     {
         "soundfontCode": "Blue",
@@ -23,7 +24,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Blue/IgniteBlue.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Blue/Swoosh1Blue.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Blue/Swoosh2Blue.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Blue/Swoosh3Blue.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Blue/Swoosh3Blue.mp3",
+        "image": "../src/assets/Crystals/BlueCrystal.png"
     },
     {
         "soundfontCode": "Green",
@@ -36,7 +38,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Green/IgniteGreen.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Green/Swoosh1Green.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Green/Swoosh2Green.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Green/Swoosh3Green.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Green/Swoosh3Green.mp3",
+        "image": "../src/assets/Crystals/GreenCrystal.png"
     },
     {
         "soundfontCode": "Orange",
@@ -49,7 +52,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Orange/IgniteOrange.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Orange/Swoosh1Orange.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Orange/Swoosh2Orange.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Orange/Swoosh3Orange.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Orange/Swoosh3Orange.mp3",
+        "image": "../src/assets/Crystals/OrangeCrystal.png"
     },
     {
         "soundfontCode": "Purple",
@@ -62,7 +66,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Purple/IgnitePurple.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Purple/Swoosh1Purple.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Purple/Swoosh2Purple.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Purple/Swoosh3Purple.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Purple/Swoosh3Purple.mp3",
+        "image": "../src/assets/Crystals/PurpleCrystal.png"
     },
     {
         "soundfontCode": "Red",
@@ -75,7 +80,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Red/IgniteRed.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Red/Swoosh1Red.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Red/Swoosh2Red.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Red/Swoosh3Red.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Red/Swoosh3Red.mp3",
+        "image": "../src/assets/Crystals/RedCrystal.png"
     },
     {
         "soundfontCode": "Silver",
@@ -88,7 +94,8 @@
         "ignite": "../src/assets/audio/SaberSounds/Silver/IgniteSilver.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Silver/Swoosh1Silver.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Silver/Swoosh2Silver.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Silver/Swoosh3Silver.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Silver/Swoosh3Silver.mp3",
+        "image": "../src/assets/Crystals/SilverCrystal.png"
     },
     {
         "soundfontCode": "Yellow",
@@ -101,6 +108,35 @@
         "ignite": "../src/assets/audio/SaberSounds/Yellow/IgniteYellow.mp3",
         "swoosh1": "../src/assets/audio/SaberSounds/Yellow/Swoosh1Yellow.mp3",
         "swoosh2": "../src/assets/audio/SaberSounds/Yellow/Swoosh2Yellow.mp3",
-        "swoosh3": "../src/assets/audio/SaberSounds/Yellow/Swoosh3Yellow.mp3"
+        "swoosh3": "../src/assets/audio/SaberSounds/Yellow/Swoosh3Yellow.mp3",
+        "image": "../src/assets/Crystals/YellowCrystal.png"
+    },
+    {
+        "soundfontCode": "Hell",
+        "clash1": "../src/assets/audio/SaberSounds/Hell/Clash1Hell.mp3",
+        "clash2": "../src/assets/audio/SaberSounds/Hell/Clash2Hell.mp3",
+        "clash3": "../src/assets/audio/SaberSounds/Hell/Clash3Hell.mp3",
+        "deactivate": "../src/assets/audio/SaberSounds/Hell/DeactivateHell.mp3",
+        "deflect": "../src/assets/audio/SaberSounds/Hell/DeflectHell.mp3",
+        "hum": "../src/assets/audio/SaberSounds/Hell/HumHell.mp3",
+        "ignite": "../src/assets/audio/SaberSounds/Hell/IgniteHell.mp3",
+        "swoosh1": "../src/assets/audio/SaberSounds/Hell/Swoosh1Hell.mp3",
+        "swoosh2": "../src/assets/audio/SaberSounds/Hell/Swoosh2Hell.mp3",
+        "swoosh3": "../src/assets/audio/SaberSounds/Hell/Swoosh3Hell.mp3",
+        "image": "../src/assets/Crystals/RainbowCrystal.png"
+    },
+    {
+        "soundfontCode": "Goat",
+        "clash1": "../src/assets/audio/SaberSounds/Goat/Clash1Goat.mp3",
+        "clash2": "../src/assets/audio/SaberSounds/Goat/Clash2Goat.mp3",
+        "clash3": "../src/assets/audio/SaberSounds/Goat/Clash3Goat.mp3",
+        "deactivate": "../src/assets/audio/SaberSounds/Goat/DeactivateGoat.mp3",
+        "deflect": "../src/assets/audio/SaberSounds/Goat/DeflectGoat.mp3",
+        "hum": "../src/assets/audio/SaberSounds/Goat/HumGoat.mp3",
+        "ignite": "../src/assets/audio/SaberSounds/Goat/IgniteGoat.mp3",
+        "swoosh1": "../src/assets/audio/SaberSounds/Goat/Swoosh1Goat.mp3",
+        "swoosh2": "../src/assets/audio/SaberSounds/Goat/Swoosh2Goat.mp3",
+        "swoosh3": "../src/assets/audio/SaberSounds/Goat/Swoosh3Goat.mp3",
+        "image": "../src/assets/Crystals/GoatCrystal.png"
     }
 ]

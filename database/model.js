@@ -271,6 +271,10 @@ Soundfont.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         modelName: 'soundfont',

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import SandboxSaberImage from "../components/SandboxPage/SandboxSaberImage.jsx"
 import SandboxSoundButtons from "../components/SandboxPage/SandboxSoundButtons.jsx"
-import SandboxBladeToggleButton from "../components/SandboxPage/SandboxBladeToggleButton.jsx"
 
 const SandboxPage = () => {
 
@@ -107,14 +106,12 @@ const SandboxPage = () => {
             <div>
                 <h1>Sandbox Page</h1>
                 <SandboxSoundButtons urls={urls} />
+                <p>Press 't' key to toggle blade, press 'a' and 'd' keys to rotate saber</p>
             </div>
             <div className="mover">
                 <div className="move">
                     <SandboxSaberImage saber={saber} urls={urls} isBladeOn={isBladeOn} />
                 </div>
-            </div>
-            <div>
-                {/* <SandboxBladeToggleButton isBladeOn={isBladeOn} setIsBladeOn={setIsBladeOn} urls={urls} /> */}
             </div>
         </>
     )
