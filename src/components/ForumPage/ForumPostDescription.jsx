@@ -17,12 +17,14 @@ const ForumPostDescription = ({post, isEditing, setPostBody}) => {
 
     return (
         <>
-            <div id="post-description">
+            <div className="flex flex-col" id="post-description">
                 <h2>{username}</h2>
                 {!isEditing && <p>{post.body}</p>}
                 {isEditing && <textarea name="description" id="description" rows="4" cols="50" defaultValue={post.body} onChange={(e) => setPostBody(e.target.value)}></textarea>}
-                <p>Posted on: {postDate}</p>
-                {post.createdAt !== post.updatedAt && <p>Edited on: {editedDate}</p>}
+                <div className="">
+                    <p>Posted on: {postDate}</p>
+                    {post.createdAt !== post.updatedAt && <p>Edited on: {editedDate}</p>}
+                </div>
             </div>
         </>
     )

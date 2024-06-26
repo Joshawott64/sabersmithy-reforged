@@ -27,7 +27,7 @@ const GalleryTable = () => {
 
     // console.log('(outside of useEffect()) saberData:', saberData)
     
-    const rows = saberData.map((el) => <GalleryTableCell 
+    const cells = saberData.map((el) => <GalleryTableCell 
     saber={el}
     saberId={el.saberId}
     key={el.saberId}
@@ -35,21 +35,24 @@ const GalleryTable = () => {
     />)
     
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Color</th>
-                    <th>Preview</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                { rows }
-            </tbody>
-        </table>
+        // <table>
+        //     <thead>
+        //         <tr>
+        //             <th>Name</th>
+        //             <th>Color</th>
+        //             <th>Preview</th>
+        //             <th></th>
+        //             <th></th>
+        //             <th></th>
+        //         </tr>
+        //     </thead>
+        //     <tbody>
+        //         { rows }
+        //     </tbody>
+        // </table>
+        <div className="grid grid-cols-4 gap-3">
+            { cells }
+        </div>
     )
 }
 

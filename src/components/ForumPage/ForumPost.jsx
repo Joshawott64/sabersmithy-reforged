@@ -57,7 +57,7 @@ const ForumPost = ({post, setPostData, colorFilter, bladeStyleFilter, soundfontF
 
     return (
         <>
-            {matchesFilters && <table>
+            {/* {matchesFilters && <table>
                 <thead>
                     <tr>
                         <th></th>
@@ -87,7 +87,23 @@ const ForumPost = ({post, setPostData, colorFilter, bladeStyleFilter, soundfontF
                         </td>
                     </tr>
                 </tfoot>
-            </table>}
+            </table>} */}
+
+           {matchesFilters && <div className="flex flex-col w-1/2 self-center">
+                <h4>{subjectSaber.name}</h4>
+                <div className="flex ">
+                    {subjectSaber.saberId && <ForumPostPreviewImage subjectSaber={subjectSaber} />}
+                    {post.postId && <ForumPostDescription post={post} isEditing={isEditing} setPostBody={setPostBody} />}
+                </div>
+                <div className="flex space-x-4">
+                    <p>{likeCount} likes</p>
+                    <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount} likeData={likeData} setLikeData={setLikeData} />
+                    {!isEditing && userId === post.userId && <ForumPostEditButton isEditing={isEditing} setIsEditing={setIsEditing} />}
+                    {!isEditing && userId === post.userId && <ForumPostDeleteButton post={post} setPostData={setPostData} />}
+                    {isEditing && userId === post.userId && <ForumPostSaveButton post={post} postBody={postBody} setIsEditing={setIsEditing} />}
+                    {isEditing && userId === post.userId && <ForumPostDiscardButton setIsEditing={setIsEditing}/>}
+                </div>
+            </div>}
         </>
     )
 }

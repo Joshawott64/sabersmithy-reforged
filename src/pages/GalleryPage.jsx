@@ -4,8 +4,10 @@ import GalleryTable from '../components/GalleryPage/GalleryTable.jsx'
 function GalleryPage() {
     return (
         <>
-            <img src={gallery} alt="Gallery" />
-            <GalleryTable />
+            <div className="flex flex-col place-items-center my-2">
+                <img className="w-1/2" src={gallery} alt="Gallery" />
+                <GalleryTable />
+            </div>
         </>
     )
 }

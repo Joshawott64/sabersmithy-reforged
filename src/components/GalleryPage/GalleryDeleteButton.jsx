@@ -26,13 +26,13 @@ const GalleryDeleteButton = ({saber, setSaberData}) => {
     if (saber.isDefault) {
         return (
             <>
-                <button disabled>Delete</button>
+                <button className="border-2 border-slate-400 rounded-sm bg-slate-200 w-1/3 text-slate-400 cursor-not-allowed" disabled>Delete</button>
             </>
         )
     } else {
         return (
             <>
-                <button onClick={() => deleteSaber()}>Delete</button>
+                <button className="border-2 border-slate-600 rounded-sm bg-white w-1/3 text-slate-800" onClick={() => deleteSaber()}>Delete</button>
             </>
         )
     }

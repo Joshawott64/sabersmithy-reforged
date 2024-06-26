@@ -32,16 +32,24 @@ function ForumPage() {
 
     return (
         <>
-            <img src={forum} alt="Forum" />
-            { posts }
-            <ForumSideBar 
-                setPostData={setPostData} 
-                setSortMode={setSortMode} 
-                setColorFilter={setColorFilter} 
-                setBladeStyleFilter={setBladeStyleFilter} 
-                setSoundfontFilter={setSoundfontFilter} 
-                setBladeNumberFilter={setBladeNumberFilter}
-            />
+            <div className="flex flex-col items-center my-2">
+                <img className="w-1/2" src={forum} alt="Forum" />
+                <div className="flex flex-row min-w-2/3 my-2">
+                    <div className="flex flex-col">
+                        { posts }
+                    </div>
+                    <div className="flex flex-col max-w-1/3 border-4 rounded-md">
+                        <ForumSideBar 
+                            setPostData={setPostData} 
+                            setSortMode={setSortMode} 
+                            setColorFilter={setColorFilter} 
+                            setBladeStyleFilter={setBladeStyleFilter} 
+                            setSoundfontFilter={setSoundfontFilter} 
+                            setBladeNumberFilter={setBladeNumberFilter}
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

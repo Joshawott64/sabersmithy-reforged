@@ -35,15 +35,13 @@ function HomePage() {
 
     return (
         <>
-            <h2>{greetings[greetingId]}</h2>
-            <br />
-            <button onClick={() => navigate('/forge')}>Forge</button>
-            <br />
-            <button onClick={() => navigate('/gallery')}>Gallery</button>
-            <br />
-            <button onClick={() => navigate('/minigames')}>Minigames</button>
-            <br />
-            <button onClick={() => navigate('/forum')}>Forum</button>  
+            <h2 className="my-5 text-2xl">{greetings[greetingId]}</h2>
+            <div className="flex flex-col justify-evenly items-center h-screen">
+                <button className="h-1/6 w-1/4 justify-self-center bg-zinc-950 border-8 border-orange-400 rounded-md text-5xl text-orange-400 font-bold truncate" onClick={() => navigate('/forge')}>Forge</button>
+                <button className="h-1/6 w-1/4 justify-self-center bg-zinc-950 border-8 border-blue-400 rounded-md text-5xl text-blue-400 font-bold truncate" onClick={() => navigate('/gallery')}>Gallery</button>
+                <button className="h-1/6 w-1/4 justify-self-center bg-zinc-950 border-8 border-yellow-400 rounded-md text-5xl text-yellow-400 font-bold truncate" onClick={() => navigate('/minigames')}>Minigames</button>
+                <button className="h-1/6 w-1/4 justify-self-center bg-zinc-950 border-8 border-green-500 rounded-md text-5xl text-green-500 font-bold truncate" onClick={() => navigate('/forum')}>Forum</button>  
+            </div>
         </>
     )
 }

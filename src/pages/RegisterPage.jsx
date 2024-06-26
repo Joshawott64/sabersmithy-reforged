@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
 import axios from "axios"
 
@@ -44,17 +44,23 @@ function NewUserPage() {
 
     return (
         <>
-            <form onSubmit={handleRegister}>
-                <label htmlFor="username">Username:</label>
-                <input required value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
-                <label htmlFor="password">Password:</label>
-                <input required value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
-                <label htmlFor="confirmPassword">Confirm Password:</label>
-                <input required value={confirmPassword} type="password" placeholder="******" onChange={(e) => setConfirmPassword(e.target.value)}/>
-                {password === confirmPassword && <button type="submit">Register</button>}
+        <div className="flex flex-col justify-center">
+            <h2 className="mt-10 text-center text-2xl font-bold">Create an account</h2>
+            <form className="flex flex-col flex-wrap space-y-6 place-self-center border-4 rounded-md w-1/6 h-full m-1 p-1" onSubmit={handleRegister}>
+                <label className="block text-lg font-medium text-left" htmlFor="username">Username:</label>
+                <input className="w-full rounded-md border-0 ring-1 ring-gray-600 ring-inset focus:ring-2" required value={username} type="text" placeholder="XxX__The$enate__XxX" onChange={(e) => setUsername(e.target.value)}/>
+                <label className="block text-lg font-medium text-left" htmlFor="password">Password:</label>
+                <input className="w-full rounded-md border-0 ring-1 ring-gray-600 ring-inset focus:ring-2" required value={password} type="password" placeholder="******" onChange={(e) => setPassword(e.target.value)}/>
+                <label className="block text-lg font-medium text-left" htmlFor="confirmPassword">Confirm Password:</label>
+                <input className="w-full rounded-md border-0 ring-1 ring-gray-600 ring-inset focus:ring-2" required value={confirmPassword} type="password" placeholder="******" onChange={(e) => setConfirmPassword(e.target.value)}/>
+                {password === confirmPassword && <button className="w-full bg-green-400 hover:bg-green-300 hover:text-gray-600" type="submit">Register</button>}
             </form>
-            {password !== confirmPassword && <p>Password confirmation does not match</p>}
-            <button onClick={() => navigate('/login')}>Already registered? Log in here.</button>
+            {password !== confirmPassword && <p className="text-red-600">Password confirmation does not match</p>}
+            <p>
+                Already registered?{' '}
+                <Link to="/login" className="text-green-600 hover:text-green-500">Log in here</Link>
+            </p>
+        </div>
         </>
     )
 }

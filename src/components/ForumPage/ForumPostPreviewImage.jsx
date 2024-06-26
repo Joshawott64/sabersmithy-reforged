@@ -18,7 +18,7 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
     if (!subjectSaber.isDoubleBladed) {
         return (
             <>
-            <div id="saber-preview">
+            <div id="saber-preview" className="w-1/2">
                 <ul id="saber-image">
                     <li>
                         <img src={urls.emitter} alt="Emitter" />
@@ -40,7 +40,7 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
     } else {
         return (
             <>
-            <div id="saber-preview">
+            <div id="saber-preview" className="w-1/2">
                 <ul id="saber-image">
                     <li id="saber-list">
                         <img src={urls.emitter} alt="Emitter" />
