@@ -14,9 +14,9 @@ const DraftPostInput = ({saber, description, setDescription}) => {
 
     return (
         <>
-            <div id="post-description">
-                <h2>{username}</h2>
-                <textarea name="description" id="description" rows="4" cols="50" defaultValue={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+            <div className="flex flex-col p-2 justify-between items-center w-full border-2 border-r-0 border-slate-600" id="post-description">
+                <h2 className="font-bold">{username}</h2>
+                <textarea className="w-full h-full rounded-md border-2 border-zinc-400" name="description" id="description" rows="4" cols="50" defaultValue={description} onChange={(e) => setDescription(e.target.value)}></textarea>
             </div>
         </>
     )

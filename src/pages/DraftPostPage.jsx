@@ -7,10 +7,10 @@ const DraftPostPage = () => {
     const { state } = useLocation()
 
     return (
-        <>
-            <h1>Draft Post</h1>
+        <div className="flex flex-col place-items-center my-2 gap-y-3">
+            <h1 className="text-6xl text-green-500 font-bold">Draft Post</h1>
             <DraftPostTable state={state} />
-        </>
+        </div>
     )
 }
 

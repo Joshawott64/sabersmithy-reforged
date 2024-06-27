@@ -49,8 +49,8 @@ function App() {
   }, [])
 
   return (
-    <>
-      <nav id="navbar" className="flex-col w-vw bg-black">
+    <div className="bg-[url('./assets/GUIComponents/Space.png')] min-h-screen h-full jusitfy-items-center">
+      <nav id="navbar" className="flex-col w-vw bg-black border-y-4 border-red-400">
         {userId && <button className="float-left p-1 text-red-600 font-bold rounded hover:bg-gray-900 hover:text-white" onClick={handleLogout}>Logout</button>}
         {userId && <button className="float-left p-1 text-gray-500 font-bold rounded hover:bg-gray-900 hover:text-white" onClick={() => navigate('/home')}>Home Page</button>}
         <img className="mx-auto" src={sabersmithyTitle} alt="Sabersmithy" id="sabersmithy" />
@@ -60,7 +60,7 @@ function App() {
       <main>
         <Outlet />
       </main>
-    </>
+    </div>
   )
 }
 

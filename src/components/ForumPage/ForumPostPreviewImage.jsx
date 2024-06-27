@@ -16,7 +16,7 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
     // console.log('urls:', urls)
 
     return (
-        <div className="flex py-2 justify-center w-full border-2 border-x-0 border-black bg-zinc-100">
+        <div className="flex py-2 justify-center w-full border-2 border-x-0 border-slate-600 bg-zinc-100">
             <div className="" id="saber-preview">
                 <ul id="saber-image">
                     <li>

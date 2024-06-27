@@ -11,7 +11,7 @@ const DraftPostUploadButton = ({postData}) => {
     }
 
     return (
-        <button onClick={handleUpload}>Upload</button>
+        <button className="w-1/3 border-2 border-slate-600 rounded-sm bg-white text-slate-800" onClick={handleUpload}>Upload</button>
     )
 }
 

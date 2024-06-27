@@ -34,8 +34,12 @@ function SaberSelectPage() {
 
     return (
         <>
-            <h1>Select your saber for {minigameName}:</h1>
-            { sabers }
+            <div className="flex flex-col  place-items-center my-2 gap-y-3">
+                <h1>Select your saber for {minigameName}:</h1>
+                <div className="grid grid-cols-4 gap-3">
+                    { sabers } 
+                </div>
+            </div>
         </>
     )
 }

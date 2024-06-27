@@ -20,37 +20,21 @@ const DraftPostTable = ({state}) => {
 
     return (
         <>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <h4>{saber.name}</h4>
-                            <DraftPostPreviewImage saber={saber} />
-                        </td>
-                        <td>
-                            <DraftPostInput 
-                                saber={saber} 
-                                description={description}
-                                setDescription={setDescription}
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>
-                            <DraftPostUploadButton postData={postData} />
-                            <DraftPostDiscardButton />
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+            <div className="flex flex-col w-72 border-2 border-slate-600 rounded-md bg-yellow-100">
+                <h4 className=" bg-yellow-100 rounded-md">{saber.name}</h4>
+                <div className="flex flex-row bg-zinc-50">
+                    <DraftPostPreviewImage saber={saber} />
+                    <DraftPostInput 
+                        saber={saber} 
+                        description={description}
+                        setDescription={setDescription}
+                    />
+                </div>
+                <div className="flex justify-evenly space-x-4 p-1 bg-zinc-50">
+                    <DraftPostUploadButton postData={postData} />
+                    <DraftPostDiscardButton />
+                </div>
+            </div>
         </>
     )
 }

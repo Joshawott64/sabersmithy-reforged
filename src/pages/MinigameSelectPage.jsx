@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import MinigameSelectButtons from "../components/MinigameSelectPage/MinigameSelectButtons.jsx"
+import minigames from "../assets/GUIComponents/Minigames.png"
 
 function MinigameSelectPage() {
 
@@ -24,10 +25,12 @@ function MinigameSelectPage() {
     />)
 
     return (
-        <>
-            <h1>Minigames Page</h1>
-            { minigameList }
-        </>
+        <div className="flex flex-col place-items-center my-2 gap-y-3">
+            <img className="w-1/2" src={minigames} alt="Minigames" />
+            <div className="grid grid-cols-1 gap-3">
+                { minigameList }
+            </div>
+        </div>
     )
 }
 

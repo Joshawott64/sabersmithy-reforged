@@ -57,39 +57,7 @@ const ForumPost = ({post, setPostData, colorFilter, bladeStyleFilter, soundfontF
 
     return (
         <>
-            {/* {matchesFilters && <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>   
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <h4>{subjectSaber.name}</h4>
-                            {subjectSaber.saberId && <ForumPostPreviewImage subjectSaber={subjectSaber} />}
-                        </td>
-                        <td>
-                            {post.postId && <ForumPostDescription post={post} isEditing={isEditing} setPostBody={setPostBody} />}
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>{likeCount} likes</td>
-                        <td>
-                            <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount} likeData={likeData} setLikeData={setLikeData} />
-                            {!isEditing && userId === post.userId && <ForumPostEditButton isEditing={isEditing} setIsEditing={setIsEditing} />}
-                            {!isEditing && userId === post.userId && <ForumPostDeleteButton post={post} setPostData={setPostData} />}
-                            {isEditing && userId === post.userId && <ForumPostSaveButton post={post} postBody={postBody} setIsEditing={setIsEditing} />}
-                            {isEditing && userId === post.userId && <ForumPostDiscardButton setIsEditing={setIsEditing}/>}
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>} */}
-
-           {matchesFilters && <div className="flex flex-col w-72 border-2 border-black rounded-md">
+           {matchesFilters && <div className="flex flex-col w-72 border-2 border-slate-600 bg-yellow-100 rounded-md">
                 <h4 className=" bg-yellow-100 rounded-md">{subjectSaber.name}</h4>
                 <div className="flex flex-row bg-zinc-50">
                     {subjectSaber.saberId && <ForumPostPreviewImage subjectSaber={subjectSaber} />}

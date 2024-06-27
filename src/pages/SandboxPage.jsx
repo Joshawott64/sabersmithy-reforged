@@ -102,18 +102,21 @@ const SandboxPage = () => {
     }
 
     return (
-        <>
-            <div>
-                <h1>Sandbox Page</h1>
+        <div className="flex flex-col place-items-center my-2 gap-y-3">
+            <div className="flex flex-col gap-y-3">
+                <h1 className="text-6xl text-yellow-300 font-bold">Sandbox</h1>
                 <SandboxSoundButtons urls={urls} />
-                <p>Press 't' key to toggle blade, press 'a' and 'd' keys to rotate saber</p>
+                <div className="flex flex-col p-2 border-4 text-slate-800 bg-slate-300 border-slate-800 rounded-md">
+                    <p>Press 't' key to toggle blade, press 'a' and 'd' keys to rotate saber</p>
+                    <p>Drag the saber around with your cursor</p>
+                </div>
             </div>
             <div className="mover">
                 <div className="move">
                     <SandboxSaberImage saber={saber} urls={urls} isBladeOn={isBladeOn} />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
