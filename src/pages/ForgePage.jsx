@@ -5,7 +5,7 @@ import ForgeTable from "../components/ForgePage/ForgeTable"
 const ForgePage =  () => {
     return (
         <>
-        <div className="flex flex-col place-items-center my-2">
+        <div className="flex flex-col place-items-center my-2 gap-y-2">
             <img className="w-1/2" src={forge} alt="Forge" />
             <ForgeTable />
         </div>

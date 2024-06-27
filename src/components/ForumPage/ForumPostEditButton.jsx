@@ -10,7 +10,7 @@ const ForumPostEditButton = ({isEditing, setIsEditing}) => {
 
     return (
         <>
-            <button onClick={handleEditMode}>Edit</button>
+            <button className="w-1/6 border-2 border-slate-600 rounded-sm bg-white text-slate-800" onClick={handleEditMode}>Edit</button>
         </>
     )
 }

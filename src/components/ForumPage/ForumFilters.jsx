@@ -37,6 +37,7 @@ const ForumFilters = ({setColorFilter, setBladeStyleFilter, setSoundfontFilter, 
 
     const bladeStyleList = bladeStyles.map((el) => <div key={el}>
         <label htmlFor="blade-styles">{el}</label>
+        <br />
         <input 
             type="radio"
             key={el}
@@ -54,38 +55,46 @@ const ForumFilters = ({setColorFilter, setBladeStyleFilter, setSoundfontFilter, 
 
     return (
         <>
-            <div className="flex flex-col items-center">
-                <h4>Filters:</h4>
+            <div className="flex flex-col items-center space-y-4">
+                <h4 className="text-2xl font-bold">Filters:</h4>
                 <label htmlFor="colors">Colors:</label>
-                <div className="flex flex-row">
+                <div className="flex flex-row space-x-2 rounded-md bg-gray-300 border-2 border-black">
                     { colorList }
                 </div>
                 <label htmlFor="soundfonts">Soundfonts:</label>
-                <div className="flex flex-row">
+                <div className="flex flex-row space-x-2 rounded-md bg-gray-300 border-2 border-black">
                     { soundfontList }
                 </div>
                 <label htmlFor="blade-styles">Blade Styles:</label>
-                <div className="flex flex-row">
+                <div className="flex flex-row space-x-2 rounded-md bg-gray-300 border-2 border-black">
                     { bladeStyleList }
                 </div>
                 <label htmlFor="blade-number">Number of Blades:</label>
-                <div className="flex flex-row">
-                    <input 
-                        type="radio" 
-                        key="Single"
-                        name="blade-number"
-                        onChange={() => setBladeNumberFilter(false)}
-                    />
-                    <label htmlFor="blade-number">Single</label>
-                    <input 
-                        type="radio" 
-                        key="Double"
-                        name="blade-number"
-                        onChange={() => setBladeNumberFilter(true)}
-                    />
-                    <label htmlFor="blade-number">Double</label>
+                <div className="flex flex-row space-x-2 rounded-md bg-gray-300 border-2 border-black">
+                    <div>
+                        <label htmlFor="blade-number">Single</label>
+                        <br />
+                        <input 
+                            type="radio" 
+                            key="Single"
+                            name="blade-number"
+                            onChange={() => setBladeNumberFilter(false)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="blade-number">Double</label>
+                        <br />
+                        <input 
+                            type="radio" 
+                            key="Double"
+                            name="blade-number"
+                            onChange={() => setBladeNumberFilter(true)}
+                        />
+                    </div>
                 </div>
-                <button className="bg-gray-300 rounded-md border-gray-600 border-2 hover:bg-gray-400" onClick={handleFilterReset}>Reset Filters</button>
+                <div>
+                    <button className="bg-gray-300 rounded-md border-gray-600 border-2 hover:bg-gray-400" onClick={handleFilterReset}>Reset Filters</button>
+                </div>
             </div>
         </>
     )

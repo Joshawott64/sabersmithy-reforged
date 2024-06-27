@@ -51,10 +51,10 @@ const GalleryTableCell = ({saber, saberId, setSaberData}) => {
         // </tr>
         // 
         // ASK SCOTT HOW TO SCALE USING HEIGHT IF POSSIBLE
-        <div className="flex flex-col justify-between border-4 border-black rounded-lg bg-neutral-300 max-h-60">
+        <div className="flex flex-col justify-between border-4 border-black rounded-lg bg-neutral-300">
             <div className="flex-col h-full">
                 <div className="flex flex-row justify-between">
-                    <div className="self-start max-h-60">
+                    <div className="self-start">
                         <GalleryImageList saber={saber} urls={urls} />
                     </div>
                     <div className="self-start">

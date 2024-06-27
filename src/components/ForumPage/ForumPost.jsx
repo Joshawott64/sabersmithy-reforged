@@ -89,13 +89,13 @@ const ForumPost = ({post, setPostData, colorFilter, bladeStyleFilter, soundfontF
                 </tfoot>
             </table>} */}
 
-           {matchesFilters && <div className="flex flex-col w-1/2 self-center">
-                <h4>{subjectSaber.name}</h4>
-                <div className="flex ">
+           {matchesFilters && <div className="flex flex-col w-72 border-2 border-black rounded-md">
+                <h4 className=" bg-yellow-100 rounded-md">{subjectSaber.name}</h4>
+                <div className="flex flex-row bg-zinc-50">
                     {subjectSaber.saberId && <ForumPostPreviewImage subjectSaber={subjectSaber} />}
                     {post.postId && <ForumPostDescription post={post} isEditing={isEditing} setPostBody={setPostBody} />}
                 </div>
-                <div className="flex space-x-4">
+                <div className="flex justify-evenly space-x-4 p-1">
                     <p>{likeCount} likes</p>
                     <ForumPostLikeButton post={post} likeCount={likeCount} setLikeCount={setLikeCount} likeData={likeData} setLikeData={setLikeData} />
                     {!isEditing && userId === post.userId && <ForumPostEditButton isEditing={isEditing} setIsEditing={setIsEditing} />}

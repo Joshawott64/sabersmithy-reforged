@@ -10,7 +10,7 @@ const GalleryImageList = ({saber, urls}) => {
             <>
                 <div id="saber-preview">
                     <ul id="saber-image">
-                        <div className="h-full max-h-40">
+                        <div className="h-full">
                             <li id="saber-list">
                                 <img src={urls.emitter} alt="Emitter" />
                             </li>
@@ -33,7 +33,7 @@ const GalleryImageList = ({saber, urls}) => {
             <>
                 <div id="saber-preview">
                     <ul id="saber-image">
-                        <div className="h-full max-h-40">
+                        <div className="h-full">
                             <li id="saber-list">
                                 <img src={urls.emitter} alt="Emitter" />
                             </li>

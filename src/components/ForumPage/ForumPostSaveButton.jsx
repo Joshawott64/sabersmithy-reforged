@@ -12,7 +12,7 @@ const ForumPostSaveButton = ({post, postBody, setIsEditing}) => {
     }
 
     return (
-        <button onClick={handleSave}>Save Changes</button>
+        <button className="w-1/3 border-2 border-slate-600 rounded-sm bg-white text-slate-800" onClick={handleSave}>Save Changes</button>
     )
 }
 

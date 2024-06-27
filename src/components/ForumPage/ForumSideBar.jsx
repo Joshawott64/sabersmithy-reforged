@@ -16,7 +16,6 @@ const ForumSideBar = ({setPostData, setSortMode, setColorFilter, setBladeStyleFi
 
     return (
         <>
-            <p>Filters and such</p>
             <ForumSortSelect setPostData={setPostData} setSortMode={setSortMode} />
             <ForumFilters setColorFilter={setColorFilter} setBladeStyleFilter={setBladeStyleFilter} setSoundfontFilter={setSoundfontFilter} setBladeNumberFilter={setBladeNumberFilter} />
         </>

@@ -1,6 +1,7 @@
 import EditTable from "../components/EditPage/EditTable"
 import { useLocation } from "react-router-dom"
 import axios from "axios"
+import edit from "../assets/GUIComponents/Edit.png"
 
 function EditPage() {
 
@@ -10,8 +11,10 @@ function EditPage() {
 
     return (
         <>
-            <h1>Edit Page</h1>
+        <div className="flex flex-col place-items-center my-2 gap-y-2">
+            <img className="w-3/8" src={edit} alt="Edit" />
             <EditTable state={state} />
+        </div>
         </>
     )
 }

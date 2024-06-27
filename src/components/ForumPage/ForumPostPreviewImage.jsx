@@ -15,10 +15,9 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
     // console.log('subjectSaber:', subjectSaber)
     // console.log('urls:', urls)
 
-    if (!subjectSaber.isDoubleBladed) {
-        return (
-            <>
-            <div id="saber-preview" className="w-1/2">
+    return (
+        <div className="flex py-2 justify-center w-full border-2 border-x-0 border-black bg-zinc-100">
+            <div className="" id="saber-preview">
                 <ul id="saber-image">
                     <li>
                         <img src={urls.emitter} alt="Emitter" />
@@ -30,42 +29,24 @@ const ForumPostPreviewImage = ({subjectSaber}) => {
                         <img src={urls.switch} alt="switch" />
                     </li>
                     <li>
-                        <img src={urls.pommel} alt="Pommel" />
+                        {!subjectSaber.isDoubleBladed && <img src={urls.pommel} alt="Pommel" />}
+                    </li>
+                    <li>
+                        {subjectSaber.isDoubleBladed && <img className="rotate-180" src={urls.switch2} alt="Switch2" />}
+                    </li>
+                    <li>
+                        {subjectSaber.isDoubleBladed && <img className="rotate-180" src={urls.guard2} alt="Guard2" />}
+                    </li>
+                    <li>
+                        {subjectSaber.isDoubleBladed && <img className="rotate-180" src={urls.emitter2} alt="Emitter2" />}
                     </li>
                 </ul>
-                <img src={urls.color} alt="Color" />
             </div>
-            </>
-        )
-    } else {
-        return (
-            <>
-            <div id="saber-preview" className="w-1/2">
-                <ul id="saber-image">
-                    <li id="saber-list">
-                        <img src={urls.emitter} alt="Emitter" />
-                    </li>
-                    <li id="saber-list">
-                        <img src={urls.guard} alt="Guard" />
-                    </li>
-                    <li id="saber-list">
-                        <img src={urls.switch} alt="Switch" />
-                    </li>
-                    <li id="saber-list">
-                        <img src={urls.switch2} alt="Switch2" style={{transform: "rotate(180deg)"}} />
-                    </li>
-                    <li id="saber-list">
-                        <img src={urls.guard2} alt="Guard2" style={{transform: "rotate(180deg)"}} />
-                    </li>
-                    <li id="saber-list">
-                        <img src={urls.emitter2} alt="Emitter2" style={{transform: "rotate(180deg)"}} />
-                    </li>
-                </ul>
-                <img src={urls.color} alt="Color" />
+            <div className="">
+                <img src={urls.color} alt="Color"/>
             </div>
-            </>
-        )
-    }
+        </div>
+    )
 
 }
 

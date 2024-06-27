@@ -18,11 +18,13 @@ const ForgeTable = () => {
 
     const { coloredEmitters, colors, emitters, guards, pommels, soundfonts, switches } = componentData.data
 
+    console.log('coloredEmitters:', coloredEmitters)
+
     // state values for client-side saber components
     const [clientEmitter, setClientEmitter] = useState(emitters[1])
     const [clientEmitter2, setClientEmitter2] = useState(emitters[1])
-    const [clientColoredEmitter, setClientColoredEmitter] = useState(coloredEmitters[18])
-    const [clientColoredEmitter2, setClientColoredEmitter2] = useState(coloredEmitters[18])
+    const [clientColoredEmitter, setClientColoredEmitter] = useState(coloredEmitters[20])
+    const [clientColoredEmitter2, setClientColoredEmitter2] = useState(coloredEmitters[20])
     const [clientGuard, setClientGuard] = useState(guards[1])
     const [clientGuard2, setClientGuard2] = useState(guards[1])
     const [clientSwitch, setClientSwitch] = useState(switches[1])
@@ -118,101 +120,93 @@ const ForgeTable = () => {
     }
 
     return (
-        <table id="forge-table">
-            <tbody>
-                <tr>
-                    <td id="left-col">
-                        <ForgeComponentsLeft 
-                            colors={colors}
-                            setClientColor={setClientColor}
-                            emitters={emitters}
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            setClientEmitter={setClientEmitter}
-                            setClientEmitter2={setClientEmitter2}
-                            setClientColoredEmitter={setClientColoredEmitter}
-                            setClientColoredEmitter2={setClientColoredEmitter2}
-                            guards={guards}
-                            setClientGuard={setClientGuard}
-                            setClientGuard2={setClientGuard2}
-                            switches={switches}
-                            setClientSwitch={setClientSwitch}
-                            setClientSwitch2={setClientSwitch2}
-                            pommels={pommels}
-                            setClientPommel={setClientPommel}
-                            forgeMode={forgeMode}
-                            updateColoredEmitter={updateColoredEmitter}
-                            updateColoredEmitter2={updateColoredEmitter2}
-                            clientColor={clientColor}
-                            clientBladeStyle={clientBladeStyle}
-                            setClientBladeStyle={setClientBladeStyle}
-                        />
-                    </td>
-                    <td>
-                        <ForgeSaberPreview 
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            clientColoredEmitter={clientColoredEmitter}
-                            clientColoredEmitter2={clientColoredEmitter2}
-                            clientGuard={clientGuard}
-                            clientGuard2={clientGuard2}
-                            clientSwitch={clientSwitch}
-                            clientSwitch2={clientSwitch2}
-                            clientPommel={clientPommel}
-                            forgeMode={forgeMode}
-                            isBladeOn={isBladeOn}
-                        />
-                    </td>
-                    <td id="right-col">
-                        <ForgeComponentsRight 
-                            handleForgeMode={handleForgeMode}
-                            colors={colors}
-                            clientColor={clientColor}
-                            setClientColor={setClientColor}
-                            emitters={emitters}
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            setClientEmitter2={setClientEmitter2}
-                            setClientColoredEmitter={setClientColoredEmitter}
-                            setClientColoredEmitter2={setClientColoredEmitter2}
-                            guards={guards}
-                            setClientGuard2={setClientGuard2}
-                            switches={switches}
-                            setClientSwitch2={setClientSwitch2}
-                            soundfonts={soundfonts}
-                            setClientSoundfont={setClientSoundfont}
-                            clientBladeStyle={clientBladeStyle}
-                            setClientBladeStyle={setClientBladeStyle}
-                            forgeMode={forgeMode}
-                            updateColoredEmitter={updateColoredEmitter}
-                            updateColoredEmitter2={updateColoredEmitter2}
-                        />
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td id="center-col">
-                        <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
-                        {isBladeOn === false && <button onClick={() => {
-                             // handleBladeToggle()
-                            addSaber()
-                            navigate('/home')
-                        }}>Save</button>}
-                        {isBladeOn && <button disabled>Save</button>}
-                        {isBladeOn && <audio loop autoPlay hidden>
-                            <source src={clientSoundfont.hum} />
-                        </audio>}
-                        {isBladeOn === false && <button onClick={() => {
-                            // handleBladeToggle()
-                            navigate('/home')
-                        }}>Discard</button>}
-                        {isBladeOn && <button disabled>Discard</button>}
-                        <button onClick={() => handleBladeToggle()}>Toggle Blade</button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <>
+            <div className="flex flex-row justify-between bg-zinc-100 border-4 border-black h-full w-full">
+                <div className="flex-wrap" id="components-left ">
+                    <ForgeComponentsLeft 
+                        colors={colors}
+                        setClientColor={setClientColor}
+                        emitters={emitters}
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        setClientEmitter={setClientEmitter}
+                        setClientEmitter2={setClientEmitter2}
+                        setClientColoredEmitter={setClientColoredEmitter}
+                        setClientColoredEmitter2={setClientColoredEmitter2}
+                        guards={guards}
+                        setClientGuard={setClientGuard}
+                        setClientGuard2={setClientGuard2}
+                        switches={switches}
+                        setClientSwitch={setClientSwitch}
+                        setClientSwitch2={setClientSwitch2}
+                        pommels={pommels}
+                        setClientPommel={setClientPommel}
+                        forgeMode={forgeMode}
+                        updateColoredEmitter={updateColoredEmitter}
+                        updateColoredEmitter2={updateColoredEmitter2}
+                        clientColor={clientColor}
+                        clientBladeStyle={clientBladeStyle}
+                        setClientBladeStyle={setClientBladeStyle}
+                    />
+                </div>
+                <div className="content-end" id="preview-image">
+                    <ForgeSaberPreview 
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        clientColoredEmitter={clientColoredEmitter}
+                        clientColoredEmitter2={clientColoredEmitter2}
+                        clientGuard={clientGuard}
+                        clientGuard2={clientGuard2}
+                        clientSwitch={clientSwitch}
+                        clientSwitch2={clientSwitch2}
+                        clientPommel={clientPommel}
+                        forgeMode={forgeMode}
+                        isBladeOn={isBladeOn}
+                    />
+                </div>
+                <div className="flex-wrap" id="components-right">
+                    <ForgeComponentsRight 
+                        handleForgeMode={handleForgeMode}
+                        colors={colors}
+                        clientColor={clientColor}
+                        setClientColor={setClientColor}
+                        emitters={emitters}
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        setClientEmitter2={setClientEmitter2}
+                        setClientColoredEmitter={setClientColoredEmitter}
+                        setClientColoredEmitter2={setClientColoredEmitter2}
+                        guards={guards}
+                        setClientGuard2={setClientGuard2}
+                        switches={switches}
+                        setClientSwitch2={setClientSwitch2}
+                        soundfonts={soundfonts}
+                        setClientSoundfont={setClientSoundfont}
+                        clientBladeStyle={clientBladeStyle}
+                        setClientBladeStyle={setClientBladeStyle}
+                        forgeMode={forgeMode}
+                        updateColoredEmitter={updateColoredEmitter}
+                        updateColoredEmitter2={updateColoredEmitter2}
+                    />
+                </div>
+            </div>
+            <div id="footer" className="flex flex-row space-x-4">
+                <input className="text-center border-2 border-gray-600 rounded-md items-center" type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
+                {isBladeOn === false && <button className="border-2 border-slate-600 rounded-sm bg-white w-1/6 h-1/6 text-slate-800" onClick={() => {
+                    addSaber()
+                    navigate('/home')
+                }}>Save</button>}
+                {isBladeOn && <button className="border-2 border-slate-400 rounded-sm bg-slate-200 w-1/6 h-1/6 text-slate-400 cursor-not-allowed" disabled>Save</button>}
+                {isBladeOn && <audio loop autoPlay hidden>
+                    <source src={clientSoundfont.hum} />
+                </audio>}
+                {isBladeOn === false && <button className="border-2 border-slate-600 rounded-sm bg-white w-1/6 h-1/6 text-slate-800" onClick={() => {
+                    navigate('/home')
+                }}>Discard</button>}
+                {isBladeOn && <button className="border-2 border-slate-400 rounded-sm bg-slate-200 w-1/6 h-1/6 text-slate-400 cursor-not-allowed" disabled>Discard</button>}
+                <button className="border-2 border-slate-600 rounded-sm bg-white w-1/2 h-1/6 text-slate-800" onClick={() => handleBladeToggle()}>Toggle Blade</button>
+            </div>
+        </>
     )
 }
 

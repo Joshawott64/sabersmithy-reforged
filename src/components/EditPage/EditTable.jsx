@@ -130,101 +130,93 @@ const EditTable = ({state}) => {
     }
 
     return (
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <EditComponentsLeft 
-                            colors={colors}
-                            setClientColor={setClientColor}
-                            emitters={emitters}
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            setClientEmitter={setClientEmitter}
-                            setClientEmitter2={setClientEmitter2}
-                            setClientColoredEmitter={setClientColoredEmitter}
-                            setClientColoredEmitter2={setClientColoredEmitter2}
-                            guards={guards}
-                            setClientGuard={setClientGuard}
-                            setClientGuard2={setClientGuard2}
-                            switches={switches}
-                            setClientSwitch={setClientSwitch}
-                            setClientSwitch2={setClientSwitch2}
-                            pommels={pommels}
-                            setClientPommel={setClientPommel}
-                            editMode={editMode}
-                            updateColoredEmitter={updateColoredEmitter}
-                            updateColoredEmitter2={updateColoredEmitter2}
-                            clientColor={clientColor}
-                            clientBladeStyle={clientBladeStyle}
-                            setClientBladeStyle={setClientBladeStyle}
-                        />
-                    </td>
-                    <td>
-                        <EditSaberPreview 
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            clientColoredEmitter={clientColoredEmitter}
-                            clientColoredEmitter2={clientColoredEmitter2}
-                            clientGuard={clientGuard}
-                            clientGuard2={clientGuard2}
-                            clientSwitch={clientSwitch}
-                            clientSwitch2={clientSwitch2}
-                            clientPommel={clientPommel}
-                            editMode={editMode}
-                            isBladeOn={isBladeOn}
-                        />
-                    </td>
-                    <td>
-                        <EditComponentsRight 
-                            handleEditMode={handleEditMode}
-                            colors={colors}
-                            clientColor={clientColor}
-                            setClientColor={setClientColor}
-                            emitters={emitters}
-                            clientEmitter={clientEmitter}
-                            clientEmitter2={clientEmitter2}
-                            setClientEmitter2={setClientEmitter2}
-                            setClientColoredEmitter={setClientColoredEmitter}
-                            setClientColoredEmitter2={setClientColoredEmitter2}
-                            guards={guards}
-                            setClientGuard2={setClientGuard2}
-                            switches={switches}
-                            setClientSwitch2={setClientSwitch2}
-                            soundfonts={soundfonts}
-                            setClientSoundfont={setClientSoundfont}
-                            clientBladeStyle={clientBladeStyle}
-                            setClientBladeStyle={setClientBladeStyle}
-                            editMode={editMode}
-                            updateColoredEmitter={updateColoredEmitter}
-                            updateColoredEmitter2={updateColoredEmitter2}
-                        />
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                        <input type="text" value={clientName} onChange={(e) => setClientName(e.target.value)} />
-                        {isBladeOn === false && <button onClick={() => {
-                            // handleBladeToggle()
-                            saveChanges()
-                            navigate('/gallery')
-                        }}>Save Changes</button>}
-                        {isBladeOn && <button disabled>Save Changes</button>}
-                        {isBladeOn && <audio loop autoPlay hidden>
-                            <source src={clientSoundfont.hum} />
-                        </audio>}
-                        {isBladeOn === false && <button onClick={() => {
-                            // handleBladeToggle()
-                            navigate('/gallery')
-                        }}>Discard Changes</button>}
-                        {isBladeOn && <button disabled>Discard Changes</button>}
-                        <button onClick={() => handleBladeToggle()}>Toggle Blade</button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <>
+            <div className="flex flex-row justify-between bg-zinc-100 border-4 border-black h-full w-full">
+                <div className="flex-wrap" id="components-left ">
+                    <EditComponentsLeft 
+                        colors={colors}
+                        setClientColor={setClientColor}
+                        emitters={emitters}
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        setClientEmitter={setClientEmitter}
+                        setClientEmitter2={setClientEmitter2}
+                        setClientColoredEmitter={setClientColoredEmitter}
+                        setClientColoredEmitter2={setClientColoredEmitter2}
+                        guards={guards}
+                        setClientGuard={setClientGuard}
+                        setClientGuard2={setClientGuard2}
+                        switches={switches}
+                        setClientSwitch={setClientSwitch}
+                        setClientSwitch2={setClientSwitch2}
+                        pommels={pommels}
+                        setClientPommel={setClientPommel}
+                        editMode={editMode}
+                        updateColoredEmitter={updateColoredEmitter}
+                        updateColoredEmitter2={updateColoredEmitter2}
+                        clientColor={clientColor}
+                        clientBladeStyle={clientBladeStyle}
+                        setClientBladeStyle={setClientBladeStyle}
+                    />
+                </div>
+                <div className="content-end" id="preview-image">
+                    <EditSaberPreview 
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        clientColoredEmitter={clientColoredEmitter}
+                        clientColoredEmitter2={clientColoredEmitter2}
+                        clientGuard={clientGuard}
+                        clientGuard2={clientGuard2}
+                        clientSwitch={clientSwitch}
+                        clientSwitch2={clientSwitch2}
+                        clientPommel={clientPommel}
+                        editMode={editMode}
+                        isBladeOn={isBladeOn}
+                    />
+                </div>
+                <div className="flex-wrap" id="components-right">
+                    <EditComponentsRight 
+                        handleEditMode={handleEditMode}
+                        colors={colors}
+                        clientColor={clientColor}
+                        setClientColor={setClientColor}
+                        emitters={emitters}
+                        clientEmitter={clientEmitter}
+                        clientEmitter2={clientEmitter2}
+                        setClientEmitter2={setClientEmitter2}
+                        setClientColoredEmitter={setClientColoredEmitter}
+                        setClientColoredEmitter2={setClientColoredEmitter2}
+                        guards={guards}
+                        setClientGuard2={setClientGuard2}
+                        switches={switches}
+                        setClientSwitch2={setClientSwitch2}
+                        soundfonts={soundfonts}
+                        setClientSoundfont={setClientSoundfont}
+                        clientBladeStyle={clientBladeStyle}
+                        setClientBladeStyle={setClientBladeStyle}
+                        editMode={editMode}
+                        updateColoredEmitter={updateColoredEmitter}
+                        updateColoredEmitter2={updateColoredEmitter2}
+                    />
+                </div>
+            </div>
+            <div id="footer" className="flex flex-row space-x-4">
+                <input className="text-center border-2 border-gray-600 rounded-md items-center" type="text" value={clientName} onChange={(e) => setClientName(e.target.value)}/>
+                {isBladeOn === false && <button className="border-2 border-slate-600 rounded-sm bg-white w-max h-1/6 text-slate-800" onClick={() => {
+                    saveChanges()
+                    navigate('/gallery')
+                }}>Save Changes</button>}
+                {isBladeOn && <button className="border-2 border-slate-400 rounded-sm bg-slate-200 w-max h-1/6 text-slate-400 cursor-not-allowed" disabled>Save Changes</button>}
+                {isBladeOn && <audio loop autoPlay hidden>
+                    <source src={clientSoundfont.hum} />
+                </audio>}
+                {isBladeOn === false && <button className="border-2 border-slate-600 rounded-sm bg-white w-max h-1/6 text-slate-800" onClick={() => {
+                    navigate('/gallery')
+                }}>Discard Changes</button>}
+                {isBladeOn && <button className="border-2 border-slate-400 rounded-sm bg-slate-200 w-max h-1/6 text-slate-400 cursor-not-allowed" disabled>Discard Changes</button>}
+                <button className="border-2 border-slate-600 rounded-sm bg-white w-max h-1/6 text-slate-800" onClick={() => handleBladeToggle()}>Toggle Blade</button>
+            </div>
+        </>
     )
 }
 

@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
+import heartEmpty from "../../assets/GUIComponents/HeartEmpty.png"
+import heartFull from "../../assets/GUIComponents/HeartFull.png"
 
 const ForumPostLikeButton = ({post, likeCount, setLikeCount, likeData, setLikeData}) => {
 
@@ -39,8 +41,12 @@ const ForumPostLikeButton = ({post, likeCount, setLikeCount, likeData, setLikeDa
 
     return (
         <>
-            {!userHasLiked && <button onClick={handleLike}>Like</button>}
-            {userHasLiked && <button onClick={handleUnlike}>Unlike</button>}
+            {!userHasLiked && <button onClick={handleLike}>
+                    <img src={heartEmpty} alt="Like" />
+                </button>}
+            {userHasLiked && <button onClick={handleUnlike}>
+                    <img src={heartFull} alt="Unlike" />
+                </button>}
         </>
     )
 }
