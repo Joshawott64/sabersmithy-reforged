@@ -9,7 +9,7 @@ const ForumPostDeleteButton = ({post, setPostData}) => {
 
     return (
         <>
-            <button className="w-1/6 border-2 border-slate-600 rounded-sm bg-white text-slate-800" onClick={handleDelete}>Delete</button>
+            <button className="w-1/4 border-2 border-slate-600 rounded-sm bg-white text-slate-800" onClick={handleDelete}>Delete</button>
         </>
     )
 }
