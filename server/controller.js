@@ -115,13 +115,14 @@ const handlerFunctions = {
     },
     addSaber: async (req, res) => {
         const newSaber = await Saber.create(req.body)
-        // console.log(newSaber)
+        console.log(newSaber)
         
         res.status(200).send("Success")
     },
     editSaber: async (req, res) => {
         const {id} = req.params
         const saberToEdit = await Saber.findByPk(id)
+        console.log('before edit:', saberToEdit)
         
         // tried to use a for-in loop and couldn't get it to work (might come back to this later)
         saberToEdit.name = req.body.name
@@ -129,6 +130,7 @@ const handlerFunctions = {
         saberToEdit.bladeStyle = req.body.bladeStyle
         saberToEdit.emitterId = req.body.emitterId
         saberToEdit.coloredEmitterId = req.body.coloredEmitterId
+        saberToEdit.coloredEmitter2Id = req.body.coloredEmitter2Id
         saberToEdit.guardId = req.body.guardId
         saberToEdit.switchId = req.body.switchId
         saberToEdit.pommelId = req.body.pommelId
@@ -139,6 +141,8 @@ const handlerFunctions = {
         saberToEdit.soundfontId = req.body.soundfontId
         
         await saberToEdit.save()
+
+        console.log('after edit:', saberToEdit)
 
         res.status(200).send("Success")
     },
@@ -163,6 +167,7 @@ const handlerFunctions = {
         const {name, color, style} = req.body
 
         const coloredEmitter = await determineColoredEmitter(name, color, style)
+        console.log('coloredEmitter:', coloredEmitter)
 
         res.status(200).send(coloredEmitter)
     },
